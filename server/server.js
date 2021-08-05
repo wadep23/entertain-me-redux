@@ -1,14 +1,16 @@
 const express = require('express');
 const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
-const { typeDef, resolvers } = require('./schemas');
+const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
 async function startApolloServer() {
     const server = new ApolloServer({
         typeDefs,
-        resolvers
+        resolvers,
+        context: authMiddleware
     });
 
     await server.start();
@@ -34,3 +36,5 @@ async function startApolloServer() {
         });
     });
 }
+
+startApolloServer();
