@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// These are subdocument schemas to save associated media to an array on User
+const tvShowSchema = require('./TV');
+const movieSchema = require('./Movie');
+
 const userSchema = new Schema(
     {
         username: {
@@ -24,7 +28,9 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
-        ]
+        ],
+        favoriteMovies: [movieSchema],
+        favoriteTvShows: [tvShowSchema]
     },
     {
         toJSON: {

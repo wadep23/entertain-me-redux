@@ -74,7 +74,33 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!')
-        }
+        },
+        saveMovie: async (parent, { movieId, movieName, moviePoster, movieDetails, movieRating }, context) => {
+            if (context.user) {
+                const addFavMovie = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { favoriteMovies: { movieId, movieName, moviePoster, movieDetails, movieRating } } },
+                    { new: true }
+                )
+
+                return addFavMovie
+            }
+
+            throw new AuthenticationError('You must be logged in to save a favorite movie!')
+        },
+        saveTvShow: async (parent, { tvShowId, tvShowName, tvShowPoster, tvShowDetails, tvShowRating }, context) => {
+            if (context.user) {
+                const addFavTvShow = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { favoriteTvShows: { tvShowId, tvShowName, tvShowPoster, tvShowDetails, tvShowRating } } },
+                    { new: true }
+                )
+
+                return addFavTvShow
+            }
+
+            throw new AuthenticationError('You must be logged in to save a favorite tv show!')
+        } 
     }     
 };
 
