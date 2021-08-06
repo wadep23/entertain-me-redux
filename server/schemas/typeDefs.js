@@ -7,6 +7,24 @@ const typeDefs = gql`
       email: String
       friendCount: Int
       friends: [User]
+      favoriteMovies: [Movie]
+      favoriteTvShows: [TV]
+    }
+
+    type Movie {
+        movieId: ID
+        movieName: String
+        moviePoster: String
+        movieDetails: String
+        movieRating: String
+    }
+
+    type TV {
+        tvShowId: ID
+        tvShowName: String
+        tvShowPoster: String
+        tvShowDetails: String
+        tvShowRating: String
     }
 
     type Auth {
@@ -25,6 +43,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addFriend(friendId: ID!): User
         removeFriend(friendId: ID!): User
+        saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String)
+        saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String)
     }
 `;
 
