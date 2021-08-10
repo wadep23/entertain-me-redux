@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 // These are subdocument schemas to save associated media to an array on User
 const tvShowSchema = require('./TV');
 const movieSchema = require('./Movie');
+const videoGameSchema = require('./VideoGame');
 
 const userSchema = new Schema(
     {
@@ -30,7 +31,8 @@ const userSchema = new Schema(
             }
         ],
         favoriteMovies: [movieSchema],
-        favoriteTvShows: [tvShowSchema]
+        favoriteTvShows: [tvShowSchema],
+        favoriteGames: [videoGameSchema]
     },
     {
         toJSON: {
