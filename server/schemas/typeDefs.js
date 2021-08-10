@@ -43,8 +43,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addFriend(friendId: ID!): User
         removeFriend(friendId: ID!): User
-        saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String)
-        saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String)
+        saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String): User
+        saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String): User
     }
 `;
 
