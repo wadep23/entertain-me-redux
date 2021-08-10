@@ -27,6 +27,14 @@ const typeDefs = gql`
         tvShowRating: String
     }
 
+    type VideoGame {
+      gameId: ID
+      gameName: String
+      gamePoster: String
+      gameRating: String
+      gameDetails: String
+    }
+
     type Auth {
       token: ID!
       user: User
@@ -45,6 +53,7 @@ const typeDefs = gql`
         removeFriend(friendId: ID!): User
         saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String): User
         saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String): User
+        saveGame(gameId: ID!, gameName: String!, gamePoster: String, gameDetails: String, gameRating: String): User
     }
 `;
 

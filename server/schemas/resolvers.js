@@ -100,7 +100,20 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You must be logged in to save a favorite tv show!')
-        } 
+        },
+        saveGame: async (parent, { gameId, gameName, gamePoster, gameDetails, gameRating}, context)  => {
+            if (context.user) {
+                const addFavGame = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    {$addToSet: { favoriteGames: { gameId, gameName, gamePoster, gameRating, gameDetails} } },
+                    { new: true }
+                )
+
+                return addFavGame
+            }
+
+            throw new AuthenticationError('You must be logged in to save a favorite game!')
+        }
     }     
 };
 

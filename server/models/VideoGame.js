@@ -17,8 +17,7 @@ const videoGameSchema = new Schema(
             type: String
         },
         gameDescription: {
-            type: String,
-            required: true
+            type: String
         }
     }
 );
