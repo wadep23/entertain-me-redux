@@ -32,7 +32,14 @@ const typeDefs = gql`
       gameName: String
       gamePoster: String
       gameRating: String
-      gameDetails: String
+    }
+
+    type movieSearch {
+      id: ID
+      original_title: String
+      overview: String
+      poster_path: String
+      vote_average: Int
     }
 
     type Auth {
@@ -44,6 +51,7 @@ const typeDefs = gql`
       me: User
       users: [User]
       user(username: String!): User
+      movieSearch:
     }
 
     type Mutation {

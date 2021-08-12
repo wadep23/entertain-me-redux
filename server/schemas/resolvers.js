@@ -1,6 +1,10 @@
+import axios from 'axios';
 const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+require('dotenv').config();
+const movieKey = process.env.REACT_APP_MOVIE_TV_API_KEY;
+const gameKey = process.env.REACT_APP_GAME_API_KEY;
 
 const resolvers = {
     Query: {
@@ -25,6 +29,16 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('friends')
         },
+        movieSearch: async () => {
+            const BASE_URL = "https://api.themoviedb.org/3";
+            const api = axios.create({ baseURL: BASE_URL })
+
+            const getUpcoming = api.get("movie/upcoming", {
+                params: { movieKey }
+            });
+
+            return getUpcoming
+        }
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -64,12 +78,13 @@ const resolvers = {
         },
         removeFriend: async (parent, { friendId }, context) => {
             if (context.user) {
-                const deleteFriend = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { friends: { friendId } } },
+                console.log(friendId)
+                const deleteFriend = await User.findByIdAndUpdate(
+                    { _id: context.user._id,  },
+                    { $pull: { friends: friendId } },
                     { new: true }
                 )
-
+                console.log(deleteFriend)
                 return deleteFriend
             }
 
@@ -101,11 +116,11 @@ const resolvers = {
 
             throw new AuthenticationError('You must be logged in to save a favorite tv show!')
         },
-        saveGame: async (parent, { gameId, gameName, gamePoster, gameDetails, gameRating}, context)  => {
+        saveGame: async (parent, { gameId, gameName, gamePoster, gameRating}, context)  => {
             if (context.user) {
                 const addFavGame = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    {$addToSet: { favoriteGames: { gameId, gameName, gamePoster, gameRating, gameDetails} } },
+                    {$addToSet: { favoriteGames: { gameId, gameName, gamePoster, gameRating } } },
                     { new: true }
                 )
 

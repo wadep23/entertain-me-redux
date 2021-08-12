@@ -17,7 +17,7 @@ function Login() {
     
 
     try {
-      const response = movieQuery(movie_key,'Horror');
+      const response = await movieQuery(movie_key,27);
       
       if (!response.ok) {
         throw new Error('Something went wrong!');
