@@ -1,10 +1,12 @@
-import axios from 'axios';
+// const axios = require('axios')
+const fetch = require('node-fetch');
 const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 require('dotenv').config();
 const movieKey = process.env.REACT_APP_MOVIE_TV_API_KEY;
 const gameKey = process.env.REACT_APP_GAME_API_KEY;
+console.log(movieKey)
 
 const resolvers = {
     Query: {
@@ -29,15 +31,15 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('friends')
         },
-        movieSearch: async () => {
-            const BASE_URL = "https://api.themoviedb.org/3";
-            const api = axios.create({ baseURL: BASE_URL })
+        movie: async () => {
+            const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
+            + movieKey + "&language=en-US&page=1&with_genres=" + 27);
 
-            const getUpcoming = api.get("movie/upcoming", {
-                params: { movieKey }
-            });
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data.results[0]) 
 
-            return getUpcoming
+            return data.results[0]
         }
     },
     Mutation: {

@@ -6,7 +6,6 @@ import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
 // import { Form, Button, Alert } from 'react-bootstrap';
 import { movieQuery } from "../utils/API";
-const movie_key = process.env.REACT_APP_MOVIE_TV_API_KEY
 
 function Login() {
   // const [isModalOpen]

@@ -35,11 +35,13 @@ const typeDefs = gql`
     }
 
     type movieSearch {
-      id: ID
-      original_title: String
-      overview: String
-      poster_path: String
-      vote_average: Int
+       
+        id: ID
+        original_title: String
+        overview: String
+        poster_path: String
+        vote_average: Float
+      
     }
 
     type Auth {
@@ -51,7 +53,7 @@ const typeDefs = gql`
       me: User
       users: [User]
       user(username: String!): User
-      movieSearch:
+      movie: movieSearch
     }
 
     type Mutation {
