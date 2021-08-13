@@ -35,6 +35,15 @@ export const GAME_API_QUERY = gql`
     }
 `;
 
+export const TRAILER_API_QUERY = gql`
+    query trailer($mediaTitle: String!) {
+        trailer(mediaTitle: $mediaTitle) {
+            videoId
+            title
+        }
+    }  
+`;
+
 export const QUERY_SELF = gql`
     {
         me {

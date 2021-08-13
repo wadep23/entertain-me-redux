@@ -5,7 +5,7 @@ import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
 // import { Form, Button, Alert } from 'react-bootstrap';
-import { gameQuery, movieQuery } from "../utils/API";
+import { gameQuery, movieQuery, testVideo } from "../utils/API";
 const movie_key = process.env.REACT_APP_GAME_API_KEY
 
 function Login() {
@@ -15,9 +15,8 @@ function Login() {
     event.preventDefault();
     
     
-    console.log(movie_key)
     try {
-      const response = await gameQuery(movie_key, "shooter", 3);
+      const response = await testVideo("Portal game trailer");
       
       if (!response.ok) {
         throw new Error('Something went wrong!');
@@ -26,6 +25,8 @@ function Login() {
       const data = await response.json();
 
       console.log(data)
+
+      document.getElementById("video").src = `https://www.youtube.com/embed/${data.items[0].id.videoId}`
 
     } catch (err) {
       console.error(err)
@@ -40,6 +41,10 @@ function Login() {
         <img src={logoImg} alt="logo"></img>
         <h4>Your go-to site when you just don't know what to watch!</h4>
         <button onClick={clickHandler}>Movie Query Test</button>
+        <div className="video-box">
+          <iframe title="youtube" id="video" className="video">Hello</iframe>
+        </div>
+        
       </header>
 
       <main>
