@@ -5,7 +5,8 @@ import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
 // import { Form, Button, Alert } from 'react-bootstrap';
-import { movieQuery } from "../utils/API";
+import { gameQuery, movieQuery } from "../utils/API";
+const movie_key = process.env.REACT_APP_GAME_API_KEY
 
 function Login() {
   // const [isModalOpen]
@@ -14,9 +15,9 @@ function Login() {
     event.preventDefault();
     
     
-
+    console.log(movie_key)
     try {
-      const response = await movieQuery(movie_key,27);
+      const response = await gameQuery(movie_key, "shooter", 3);
       
       if (!response.ok) {
         throw new Error('Something went wrong!');

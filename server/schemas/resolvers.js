@@ -6,7 +6,6 @@ const { signToken } = require('../utils/auth');
 require('dotenv').config();
 const movieKey = process.env.REACT_APP_MOVIE_TV_API_KEY;
 const gameKey = process.env.REACT_APP_GAME_API_KEY;
-console.log(movieKey)
 
 const resolvers = {
     Query: {
@@ -33,15 +32,47 @@ const resolvers = {
                 .populate('friends')
                 // Need API Fetch Data here
         },
-        movie: async () => {
+        movie: async (parent, { genre }) => {
             const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
-            + movieKey + "&language=en-US&page=1&with_genres=" + 27);
-
+            + movieKey + "&language=en-US&page=1&with_genres=" + genre);
             const response = await fetch(url)
-            const data = await response.json()
-            console.log(data.results[0]) 
+            const data = await response.json();
+            let movieDataReturn = [];
 
-            return data.results[0]
+            // For loop to generate all results from the first page, 20
+            for(let i = 0; i < data.results.length; i++) {
+                movieDataReturn.push(data.results[i])
+            }
+
+            return movieDataReturn
+        },
+        tvShow: async (parent, { genre }) => {
+            const url = ("https://api.themoviedb.org/3/discover/tv?api_key="
+            + movieKey + "&language=en-US&page=1&with_genres=" + genre);
+            const response = await fetch(url);
+            const data = await response.json();
+            let tvDataReturn = [];
+
+            // For loop to generate all results from the first page, 20
+            for(let i = 0; i < data.results.length; i++) {
+                tvDataReturn.push(data.results[i])
+            };
+
+            return tvDataReturn
+        },
+        game: async (parent, { genre, platform }) => {
+            const url = ("https://api.rawg.io/api/games?key=" + gameKey
+            + "&genres=" + genre + "&parent_platforms=" + platform);
+            const response = await fetch(url);
+            const data = await response.json();
+            let gameDataReturn = [];
+
+            // For loop to generate all results from the first page, 20
+            for(let i = 0; i < data.results.length; i++) {
+                gameDataReturn.push(data.results[i])
+            };
+
+            return gameDataReturn
         }
     },
     Mutation: {
