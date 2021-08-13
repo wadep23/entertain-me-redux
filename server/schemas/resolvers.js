@@ -15,7 +15,7 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('friends')
-
+                    // Need API Fetch Data here
                 return userData    
             }
 
@@ -25,11 +25,13 @@ const resolvers = {
             return User.find()
                 .select('-__v -password')
                 .populate('friends')
+                // Need API Fetch Data here
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
                 .populate('friends')
+                // Need API Fetch Data here
         },
         movie: async () => {
             const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
