@@ -14,3 +14,8 @@ export const gameQuery = (key, genre, platform) => {
     + "&genres=" + genre + "&parent_platforms=" + platform);
 };
 
+export const testVideo = (title) => {
+    return fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="
+    + title + "&key=" + api_key);
+}
+

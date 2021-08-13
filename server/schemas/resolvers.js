@@ -6,6 +6,7 @@ const { signToken } = require('../utils/auth');
 require('dotenv').config();
 const movieKey = process.env.REACT_APP_MOVIE_TV_API_KEY;
 const gameKey = process.env.REACT_APP_GAME_API_KEY;
+const trailerKey = process.env.REACT_APP_TRAILER_API_KEY;
 
 const resolvers = {
     Query: {
@@ -73,6 +74,19 @@ const resolvers = {
             };
 
             return gameDataReturn
+        },
+        trailer: async (parent, { mediaTitle }) => {
+            const url = ("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="
+            + (mediaTitle + "trailer") + "&key=" + trailerKey);
+            const response = await fetch(url);
+            const data = await response.json();
+            const videoData = {
+                videoId: data.items[0].id.videoId,
+                title: data.items[0].snippet.title
+            }
+
+            return videoData
+            // To access video, use <iframe> on front end with link `https://www.youtube.com/embed/${data.items[0].id.videoId}`
         }
     },
     Mutation: {

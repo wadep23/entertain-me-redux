@@ -57,6 +57,11 @@ const typeDefs = gql`
       background_image: String
     }
 
+    type trailerVideo {
+      videoId: String
+      title: String
+    }
+
     type Auth {
       token: ID!
       user: User
@@ -69,6 +74,7 @@ const typeDefs = gql`
       movie(genre: Int!): [movieSearch]
       tvShow(genre: Int!): [tvShowSearch]
       game(genre: String!, platform: Int!): [gameSearch]
+      trailer(mediaTitle: String!): trailerVideo
     }
 
     type Mutation {
