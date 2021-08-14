@@ -1,4 +1,4 @@
-const api_key = "241fd669ed11458cba5005502a65b481";
+const api_key = "AIzaSyA_6gm34VRotQOOvhwlKxbncYUGrAXAADw";
 let randomNumber = Math.floor(Math.random() * 500)
 
 export const movieQuery = (key, genre) => {
@@ -18,6 +18,6 @@ export const gameQuery = (genre, platform) => {
 
 export const testVideo = (title) => {
     return fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="
-    + title + "&key=" + 1);
+    + title + "&key=" + api_key);
 }
 
