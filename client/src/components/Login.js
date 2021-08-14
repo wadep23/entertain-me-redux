@@ -4,7 +4,7 @@ import movieImgOne from "../assets/images/movie-pic-1.jpg";
 import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
-// import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { gameQuery, movieQuery, testVideo, tvQuery } from "../utils/API";
 const movie_key = process.env.REACT_APP_GAME_API_KEY
 
@@ -14,9 +14,9 @@ function Login() {
   const clickHandler = async (event) => {
     event.preventDefault();
     
-    // let randomNumber = Math.floor(Math.random() * 500)
+    let randomNumber = Math.floor(Math.random() * 500)
 
-    // console.log(randomNumber)
+    console.log(randomNumber)
     
     try {
       const response = await gameQuery("shooter", 2);
