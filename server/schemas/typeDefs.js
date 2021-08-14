@@ -9,6 +9,7 @@ const typeDefs = gql`
       friends: [User]
       favoriteMovies: [Movie]
       favoriteTvShows: [TV]
+      createdPosts: [Post]
     }
 
     type Movie {
@@ -32,6 +33,13 @@ const typeDefs = gql`
       gameName: String
       gamePoster: String
       gameRating: String
+    }
+
+    type Post {
+      _id: ID
+      username: String
+      createdAt: String
+      postText: String
     }
 
     type movieSearch {
@@ -71,6 +79,7 @@ const typeDefs = gql`
       me: User
       users: [User]
       user(username: String!): User
+      posts: [Post]
       movie(genre: Int!): [movieSearch]
       tvShow(genre: Int!): [tvShowSearch]
       game(genre: String!, platform: Int!): [gameSearch]
@@ -82,6 +91,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addFriend(friendId: ID!): User
         removeFriend(friendId: ID!): User
+        addPost(postText: String!): Post
         saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String): User
         saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String): User
         saveGame(gameId: ID!, gameName: String!, gamePoster: String, gameDetails: String, gameRating: String): User

@@ -38,6 +38,17 @@ export const ADD_FRIEND = gql`
     }
 `;
 
+export const ADD_POST = gql`
+    mutation addPost($postText: String!) {
+        addPost(postText: $postText) {
+            _id
+            username
+            createdAt
+            postText
+        }
+    }  
+`;
+
 // REMOVE_FRIEND
 
 // ADD_MOVIE

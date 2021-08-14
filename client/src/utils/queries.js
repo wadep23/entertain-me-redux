@@ -44,6 +44,17 @@ export const TRAILER_API_QUERY = gql`
     }  
 `;
 
+export const QUERY_POSTS = gql`
+    query {
+        posts {
+            _id
+            createdAt
+            username
+            postText
+        }
+    }  
+`;
+
 export const QUERY_SELF = gql`
     {
         me {
