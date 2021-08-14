@@ -16,6 +16,3 @@ export const gameQuery = (genre, platform) => {
     + "&genres=" + genre + "&parent_platforms=" + platform);
 };
 
-export const trailerQuery = (genre, platform) => {
-    return fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=trailer&key=" + process.env.YOUTUBE_API_KEY);
-};
