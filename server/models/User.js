@@ -32,7 +32,13 @@ const userSchema = new Schema(
         ],
         favoriteMovies: [movieSchema],
         favoriteTvShows: [tvShowSchema],
-        favoriteGames: [videoGameSchema]
+        favoriteGames: [videoGameSchema],
+        createdPosts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Post'
+            }
+        ]
     },
     {
         toJSON: {
