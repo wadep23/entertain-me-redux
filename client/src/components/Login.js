@@ -5,7 +5,7 @@ import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
 // import { Form, Button, Alert } from 'react-bootstrap';
-import { gameQuery, movieQuery, testVideo } from "../utils/API";
+import { gameQuery, movieQuery, testVideo, tvQuery } from "../utils/API";
 const movie_key = process.env.REACT_APP_GAME_API_KEY
 
 function Login() {
@@ -14,9 +14,12 @@ function Login() {
   const clickHandler = async (event) => {
     event.preventDefault();
     
+    // let randomNumber = Math.floor(Math.random() * 500)
+
+    // console.log(randomNumber)
     
     try {
-      const response = await testVideo("Portal game trailer");
+      const response = await gameQuery("shooter", 2);
       
       if (!response.ok) {
         throw new Error('Something went wrong!');

@@ -34,8 +34,12 @@ const resolvers = {
                 // Need API Fetch Data here
         },
         movie: async (parent, { genre }) => {
+            let randomPageNumber = Math.floor(Math.random() * 500);
+
             const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
-            + movieKey + "&language=en-US&page=1&with_genres=" + genre);
+            + movieKey + "&language=en-US&page=" + randomPageNumber + 
+            "&with_genres=" + genre);
+            
             const response = await fetch(url)
             const data = await response.json();
             let movieDataReturn = [];
@@ -48,8 +52,12 @@ const resolvers = {
             return movieDataReturn
         },
         tvShow: async (parent, { genre }) => {
+            let randomPageNumber = Math.floor(Math.random() * 500);
+            
             const url = ("https://api.themoviedb.org/3/discover/tv?api_key="
-            + movieKey + "&language=en-US&page=1&with_genres=" + genre);
+            + movieKey + "&language=en-US&page=" + randomPageNumber + 
+            "&with_genres=" + genre);
+
             const response = await fetch(url);
             const data = await response.json();
             let tvDataReturn = [];
