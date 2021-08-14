@@ -1,12 +1,8 @@
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Carousel from "react-bootstrap/Carousel";
-import gamerImgOne from "./assets/images/gamer-pic-1.jpg";
-import movieImgOne from "./assets/images/movie-pic-1.jpg";
-import tvPicOne from "./assets/images/tv-pic-1.jpg";
-import logoImg from "./assets/images/entertain-me-logo.png";
-import friendsImg from "./assets/images/friends-1.jpg";
-import Navbar from "./components/Navbar";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+require("dotenv").config();
 
 function App() {
   return (
