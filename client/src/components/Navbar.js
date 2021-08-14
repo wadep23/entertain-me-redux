@@ -1,35 +1,39 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import { Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown }  from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 
 
-
-function AppNavbar() {
-
+const AppNavbar = () => {
     return (
-        <>
-            <Navbar bg="light" expand="lg">
+        <div>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Entertain-Me</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <Nav.Link href="#features">Signup</Nav.Link>
+                            <Nav.Link href="#pricing">Login</Nav.Link>
+                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Movies</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Television</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">TV</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Video Games</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Vibe</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Today's Vibe</NavDropdown.Item>
                             </NavDropdown>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link eventKey={2} href="#memes">
+                                Dank memes
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </>
+        </div>
+    )
 
-    )   
 }
 
-export default AppNavbar; 
+export default AppNavbar;
