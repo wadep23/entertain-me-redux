@@ -1,4 +1,3 @@
-const api_key = "AIzaSyA_6gm34VRotQOOvhwlKxbncYUGrAXAADw";
 let randomNumber = Math.floor(Math.random() * 500);
 
 export const movieQuery = (key, genre) => {
