@@ -42,8 +42,8 @@ function App() {
           <Navbar />
           <Switch>
             <Login />
-            <Profile />
           </Switch>
+          <Profile />
         </>
       </Router>
     </ApolloProvider>
