@@ -7,6 +7,8 @@ import friendsImg from "../assets/images/friends-1.jpg";
 import { Form, Button, Alert } from 'react-bootstrap';
 import { gameQuery, movieQuery, testVideo, tvQuery } from "../utils/API";
 const movie_key = process.env.REACT_APP_GAME_API_KEY
+import "../FontawesomeIcons";
+import {FontawesomeIcons} from "@fortawesome/react-fontawesome";
 
 function Login() {
   // const [isModalOpen]
