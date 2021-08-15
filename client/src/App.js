@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import SignUpForm from "./components/SignUpForm";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 require("dotenv").config();
 
 const httpLink = createHttpLink({
@@ -41,6 +42,7 @@ function App() {
           <Navbar />
           <Switch>
             <Login />
+            <Profile />
           </Switch>
         </>
       </Router>

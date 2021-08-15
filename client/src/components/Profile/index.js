@@ -1,6 +1,12 @@
 import { useParams } from "react-router-dom";
-import { ADD_FRIEND } from "../../utils/mutations";
+import {
+  ADD_FRIEND,
+  REMOVE_MOVIE,
+  REMOVE_TV_SHOW,
+  REMOVE_GAME,
+} from "../../utils/mutations";
 import { QUERY_SELF } from "../../utils/queries";
+import { useQuery, useMutation } from "@apollo/client";
 import {
   Jumbotron,
   Container,
@@ -9,6 +15,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { removeMediaId } from "../../utils/saveMedia";
+import Auth from "../../utils/auth";
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
@@ -42,15 +49,16 @@ const Profile = (props) => {
     );
   }
   // change the passed in value to something that can be unique to the content type ie. passed in value of mediaType and compare to favorite media array on user model
-  const handleDeleteContent = async (movieId, tvShowId, gameId) => {
+  const handleDeleteContent = async () => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const { movieId, tvShowId, gameId } = useQuery(GET_SELF);
 
     if (!token) {
       return false;
     }
 
     if (movieId) {
-      const deleteMovie = await deleteContent({
+      await deleteContent({
         variables: { movieId: movieId },
         update: (cache) => {
           const data = cache.readQuery({ query: GET_SELF });
@@ -69,7 +77,7 @@ const Profile = (props) => {
       removeMediaId(movieId);
     }
     if (tvShowId) {
-      const deleteTvShow = await deleteContent({
+      await deleteContent({
         variables: { tvShowId: tvShowId },
         update: (cache) => {
           const data = cache.readQuery({ query: GET_SELF });
@@ -87,24 +95,24 @@ const Profile = (props) => {
       });
       removeMediaId(tvShowId);
     }
-    if (movieId) {
-      const deleteMovie = await deleteContent({
-        variables: { movieId: movieId },
+    if (gameId) {
+      await deleteContent({
+        variables: { gameId: gameId },
         update: (cache) => {
           const data = cache.readQuery({ query: GET_SELF });
           const userDataCache = data.me;
-          const savedMovieCache = userDataCache.favoriteMovies;
-          const updatedMoviesCache = savedMovieCache.filter(
-            (movie) => movie.movieId !== movieId
+          const savedGameCache = userDataCache.favoriteGames;
+          const updatedGamesCache = savedGameCache.filter(
+            (game) => game.gameId !== gameId
           );
-          data.me.favoriteMovies = updatedMoviesCache;
+          data.me.favoriteGames = updatedGamesCache;
           cache.writeQuery({
             query: GET_SELF,
-            data: { data: { ...data.me.favoriteMovies } },
+            data: { data: { ...data.me.favoriteGames } },
           });
         },
       });
-      removeMediaId(movieId);
+      removeMediaId(gameId);
     }
   };
 
@@ -118,20 +126,125 @@ const Profile = (props) => {
     }
   };
 
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
-    <div>
-      <div>
-        <h2>{`${user.username}'s`} Profile</h2>
-
-        {userParam && (
-          <button className="btn" onClick={handleClick}>
-            Add Friend
-          </button>
-        )}
-      </div>
-
-      <div></div>
-    </div>
+    <>
+      <Jumbotron fluid className="text-light bg-dark">
+        <Container>
+          <h2>{`${user.username}'s`} Profile</h2>
+          {userParam && (
+            <button className="btn" onClick={handleClick}>
+              Add Friend
+            </button>
+          )}
+        </Container>
+      </Jumbotron>
+      <Container>
+        <h2>
+          {userData.favoriteMovies.length
+            ? `Viewing ${userData.favoriteMovies.length} saved ${
+                userData.favoriteMovies.length === 1 ? "movie" : "movies"
+              }:`
+            : "You have no saved movies!"}
+        </h2>
+        <CardColumns>
+          {userData.favoriteMovies.map((user) => {
+            return (
+              <Card key={user.movieId} border="dark">
+                {user.moviePoster ? (
+                  <Card.Img
+                    src={user.moviePoster}
+                    alt={`The cover for ${user.movieName}`}
+                    variant="top"
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title>{user.movieName}</Card.Title>
+                  <Card.Text>{user.movieDetails}</Card.Text>
+                  <Button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeleteContent(user.movieId)}
+                  >
+                    Delete this Movie!
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardColumns>
+      </Container>
+      <Container>
+        <h2>
+          {userData.favoriteTvShows.length
+            ? `Viewing ${userData.favoriteTvShows.length} saved ${
+                userData.favoriteTvShows.length === 1 ? "tv show" : "tv shows"
+              }:`
+            : "You have no saved Tv Shows!"}
+        </h2>
+        <CardColumns>
+          {userData.favoriteTvShows.map((user) => {
+            return (
+              <Card key={user.tvShowId} border="dark">
+                {user.tvShowPoster ? (
+                  <Card.Img
+                    src={user.tvShowPoster}
+                    alt={`The cover for ${user.tvShowName}`}
+                    variant="top"
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title>{user.tvShowName}</Card.Title>
+                  <Card.Text>{user.tvShowDetails}</Card.Text>
+                  <Button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeleteContent(user.tvShowId)}
+                  >
+                    Delete this Tv Show!
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardColumns>
+      </Container>
+      <Container>
+        <h2>
+          {userData.favoriteGames.length
+            ? `Viewing ${userData.favoriteGames.length} saved ${
+                userData.favoriteGames.length === 1 ? "game" : "games"
+              }:`
+            : "You have no saved Games!"}
+        </h2>
+        <CardColumns>
+          {userData.favoriteGames.map((user) => {
+            return (
+              <Card key={user.gameId} border="dark">
+                {user.gamePoster ? (
+                  <Card.Img
+                    src={user.gamePoster}
+                    alt={`The cover for ${user.gameName}`}
+                    variant="top"
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title>{user.gameName}</Card.Title>
+                  <Card.Text>{user.gameDetails}</Card.Text>
+                  <Button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeleteContent(user.gameId)}
+                  >
+                    Delete this Game!
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardColumns>
+      </Container>
+    </>
   );
 };
 
