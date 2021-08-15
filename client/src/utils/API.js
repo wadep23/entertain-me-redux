@@ -3,7 +3,7 @@ require('dotenv').config();
 
 export const movieQuery = (genre) => {
     return fetch("https://api.themoviedb.org/3/discover/movie?api_key="
-     + process.env.MOVIE_TV_API_KEY + "&language=en-US&with_genres=" + genre)
+    + process.env.MOVIE_TV_API_KEY + "&language=en-US&with_genres=" + genre)
 };
 
 export const tvQuery = (genre) => {
