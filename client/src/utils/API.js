@@ -1,4 +1,6 @@
 
+let randomNumber = Math.floor(Math.random() * 500);
+
 // let randomNumber = Math.floor(Math.random() * 500);
 
 // export const movieQuery = (key, genre) => {
