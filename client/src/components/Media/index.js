@@ -30,7 +30,6 @@ const searchMedia = () => {
     const handleFormSubmit = async (event, mediaType, genre, platform) => {
         event.preventDefault();
         let imgLink = "https://image.tmdb.org/t/p/w500";
-        let data;
 
         if (mediaType === 'Movie') {
             try {
