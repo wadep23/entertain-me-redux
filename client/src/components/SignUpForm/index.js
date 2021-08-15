@@ -1,19 +1,20 @@
-import { validateEmail } from "../utils/helpers";
-import { formState, useState } from "react";
+import { validateEmail } from "../../utils/helpers";
+import React, { useState } from "react";
 
-function SignUp() {
-  const [formState, setFormState] = useState({
-    name: "",
+function SignUpForm() {
+  const [userFormData, setFormState] = useState({
+    username: "",
     email: "",
     message: "",
   });
-  const { username, email, password } = formState;
+  // const { username, email, password } = formState;
   const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(e) {
+    const { name, value } = e.target;
     // targets the different name values in the form
-    if (e.target.name === "email") {
-      const isValid = validateEmail(e.target.value);
+    if (name === "email") {
+      const isValid = validateEmail(name);
 
       // checks if email is valid
       if (!isValid) {
@@ -23,21 +24,21 @@ function SignUp() {
       }
     } else {
       // checks if other fields in form are valid
-      if (!e.target.value.length) {
-        setErrorMessage(`${e.target.name} is required.`);
+      if (!value.length) {
+        setErrorMessage(`${name} is required.`);
       } else {
         setErrorMessage("");
       }
     }
     // updates form state if no error
     if (!errorMessage) {
-      setFormState({ ...formState, [e.target.name]: e.target.value });
+      setFormState({ ...userFormData, [name]: value });
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formState);
+    console.log(userFormData);
   }
 
   return (
@@ -47,26 +48,30 @@ function SignUp() {
         <div>
           <label htmlFor="username">Username: </label>
           <input
-            type="text"
+            id="username"
+            type="username"
             name="name"
-            defaultValue={username}
+            value={userFormData.username}
             onBlur={handleChange}
           />
         </div>
         <div>
           <label htmlFor="email">Email: </label>
           <input
+            id="email"
             type="email"
             name="email"
-            defaultValue={email}
+            value={userFormData.email}
             onBlur={handleChange}
           />
         </div>
         <div>
           <label htmlFor="password">Password: </label>
           <input
+            id="password"
+            type="password"
             name="password"
-            defaultValue={password}
+            value={userFormData.password}
             onBlur={handleChange}
           />
         </div>
@@ -81,4 +86,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpForm;
