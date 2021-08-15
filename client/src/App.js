@@ -2,12 +2,26 @@ import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+<<<<<<< HEAD
+import Navbar from "./components/Navbar";
+
+
+
+
+require('dotenv').config()
+=======
 require("dotenv").config();
+>>>>>>> 76c30e65696e02656a8a2a2000907aca671803b0
 
 function App() {
   return (
+
     <div>
       <Navbar />
+<<<<<<< HEAD
+      <Login />
+      <SignUp />
+=======
       <div>
         <header>
           <h3 className="login-page">Log Me In!</h3>
@@ -82,7 +96,9 @@ function App() {
           </div>
         </main>
       </div>
+>>>>>>> 76c30e65696e02656a8a2a2000907aca671803b0
     </div>
+    
   );
 }
 
