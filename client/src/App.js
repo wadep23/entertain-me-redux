@@ -1,28 +1,22 @@
 import React from 'react';
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUpForm";
 import Login from "./components/Login";
-<<<<<<< HEAD
-import Navbar from "./components/Navbar";
-
-
-
-
-require('dotenv').config()
-=======
+import Navbar from './components/Navbar';
+import Carousel from "react-bootstrap/Carousel";
+import gamerImgOne from "../src/assets/images/gamer-pic-1.jpg";
+import movieImgOne from "../src/assets/images/movie-pic-1.jpg";
+import tvPicOne from "../src/assets/images/tv-pic-1.jpg";
+import logoImg from "../src/assets/images/entertain-me-logo.png";
+import friendsImg from "../src/assets/images/friends-1.jpg";
 require("dotenv").config();
->>>>>>> 76c30e65696e02656a8a2a2000907aca671803b0
 
 function App() {
   return (
 
     <div>
       <Navbar />
-<<<<<<< HEAD
-      <Login />
-      <SignUp />
-=======
       <div>
         <header>
           <h3 className="login-page">Log Me In!</h3>
@@ -97,7 +91,6 @@ function App() {
           </div>
         </main>
       </div>
->>>>>>> 76c30e65696e02656a8a2a2000907aca671803b0
     </div>
     
   );
