@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-import Auth from "../../utils/auth";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import UserModal from "../Modal/index.js";
+import React from 'react';
+import { Navbar, Nav, NavDropdown }  from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+
+
 
 const AppNavbar = () => {
-  const [parent, setShowModal] = useState(false);
+    return (
+        <div>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">Entertain-Me</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#signup">Home</Nav.Link>
+                            <NavDropdown title="The Arena" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="#movies">Movies</NavDropdown.Item>
+                                <NavDropdown.Item href="#television">TV</NavDropdown.Item>
+                                <NavDropdown.Item href="#videogames">Video Games</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#vibe">Today's Vibe</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        <Nav>
+                        {/* <Nav.Link href="#signup">Signup</Nav.Link>
+                        <Nav.Link href="#login">Login</Nav.Link> */}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
+    )
 
-  return (
-    <>
-      <Navbar>
-        <Container>
-          <Navbar.Brand to="/">Entertain Me</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
-            <Nav>
-              <Nav.Link to="/">Search for entertainment</Nav.Link>
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link to="/profile">view profile</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
-                  Login/Sign up
-                </Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <UserModal />
-    </>
-  );
-};
+}
 
 export default AppNavbar;
