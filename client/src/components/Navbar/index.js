@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 
 
-import  Auth  from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 
 const AppNavbar = () => {

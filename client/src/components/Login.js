@@ -42,7 +42,7 @@ function Login() {
       <header>
         {/* <h3 className="login-page">Log Me In!</h3>
         <h3 className="signup-top">Sign Me Up!</h3> */}
-        <img src={logoImg} alt="logo"></img>
+        <img src={logoImg} className="logo" alt="logo"></img>
         <h4>Your go-to site when you just don't know what to watch!</h4>
         <button onClick={clickHandler}>Movie Query Test</button>
         <div className="video-box">
