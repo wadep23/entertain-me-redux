@@ -17,7 +17,7 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              {/* <Nav.Link href="#signup">Home</Nav.Link> */}
+              <Nav.Link onClick={() => setShowModal(true)}>Home</Nav.Link>
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#movies">Movies</NavDropdown.Item>
                 <NavDropdown.Item href="#television">TV</NavDropdown.Item>
