@@ -3,12 +3,18 @@ import { useState } from "react";
 import SignUpForm from "../SignUpForm";
 import LoginForm from "../LoginForm";
 
-const UserModal = () => {
-  const [showModal, setShowModal] = useState(false);
-
+const UserModal = (props) => {
+  // const [showModal, setShowModal] = useState(false);
+  const { showModal, setShowModal } = props;
   return (
     <>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal
+        size="lg"
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        aria-labelledby="signup-modal"
+      >
+        {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey="login">
           <Modal.Header closeButton>
             <Modal.Title id="signup-modal">
@@ -16,7 +22,9 @@ const UserModal = () => {
                 <Nav.Item>
                   <Nav.Link eventKey="login">Login</Nav.Link>
                 </Nav.Item>
-                <Nav.Item eventKey="signup">Sign up</Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
