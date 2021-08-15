@@ -11,8 +11,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import SignUpForm from "./components/SignUpForm";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 require("dotenv").config();
 
 const httpLink = createHttpLink({
@@ -43,6 +44,7 @@ function App() {
           <Switch>
             <Login />
           </Switch>
+          <Profile />
         </>
       </Router>
     </ApolloProvider>
