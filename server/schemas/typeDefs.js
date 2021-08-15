@@ -95,6 +95,9 @@ const typeDefs = gql`
         saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String): User
         saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String): User
         saveGame(gameId: ID!, gameName: String!, gamePoster: String, gameDetails: String, gameRating: String): User
+        removeMovie(movieId: ID!): User
+        removeTvShow(tvShowId: ID!): User
+        removeGame(gameId: ID!): User
     }
 `;
 
