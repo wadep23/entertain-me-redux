@@ -15,7 +15,10 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('friends')
-                    // Need API Fetch Data here
+                    .populate('favoriteMovies')
+                    .populate('favoriteTvShows')
+                    .populate('favoriteGames')
+                    .populate('createdPosts')
                 return userData    
             }
 
@@ -25,13 +28,19 @@ const resolvers = {
             return User.find()
                 .select('-__v -password')
                 .populate('friends')
-                // Need API Fetch Data here
+                .populate('favoriteMovies')
+                .populate('favoriteTvShows')
+                .populate('favoriteGames')
+                .populate('createdPosts')
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
                 .populate('friends')
-                // Need API Fetch Data here
+                .populate('favoriteMovies')
+                .populate('favoriteTvShows')
+                .populate('favoriteGames')
+                .populate('createdPosts')
         },
         posts: async () => {
             return Post.find()
