@@ -49,10 +49,85 @@ export const ADD_POST = gql`
     }  
 `;
 
-// REMOVE_FRIEND
+export const SAVE_MOVIE = gql`
+    saveMovie($movieId: ID!, $movieName: String!, $moviePoster: String, $movieDetails: String!, $movieRating: String) {
+        saveMovie(movieId: $movieId, movieName: $movieName, moviePoster: $moviePoster, movieDetails: $movieDetails, movieRating: $movieRating) {
+            _id
+            username
+            favoriteMovies {
+                movieId
+                movieName
+                moviePoster
+                movieDetails
+                movieRating
+            }
+        }
+    }
+`;
 
-// ADD_MOVIE
+export const REMOVE_MOVIE = gql`
+    mutation removeMovie($movieId: ID!) {
+        removeMovie(moviedId: $moviedId) {
+            _id
+            username
+            favoriteMovies {
+                movieId
+            }
+        }
+    }
+`;
 
-// ADD_SHOW
+export const SAVE_TV_SHOW = gql`
+    saveTvShow($tvShowId: ID!, $tvShowName: String!, $tvShowPoster: String, $tvShowDetails: String!, $tvShowRating: String) {
+        saveTvShow(tvShowId: $tvShowId, tvShowName: $tvShowName, tvShowPoster: $tvShowPoster, tvShowDetails: $movieDetails, movieRating: $movieRating) {
+            _id
+            username
+            favoriteTvShows {
+                tvShowId
+                tvShowName
+                tvShowPoster
+                tvShowDetails
+                tvShowRating
+            }
+        }
+    }
+`;
 
-// ADD_GAME
+export const REMOVE_TV_SHOW = gql`
+    mutation removeTvShow($tvShowId: ID!) {
+        removeTvShow(tvShowdId: $tvShowdId) {
+            _id
+            username
+            favoriteTvShows {
+                tvShowId
+            }
+        }
+    }
+`;
+
+export const SAVE_GAME = gql`
+    savegame($gameId: ID!, $gameName: String!, $gamePoster: String, $gameRating: String) {
+        savegame(gameId: $gameId, gameName: $gameName, gamePoster: $gamePoster, movieRating: $movieRating) {
+            _id
+            username
+            favoritegames {
+                gameId
+                gameName
+                gamePoster
+                gameRating
+            }
+        }
+    }
+`;
+
+export const REMOVE_GAME = gql`
+    mutation removeGame($gameId: ID!) {
+        removeGame(gameId: $gameId) {
+            _id
+            username
+            favoriteGames {
+                gameId
+            }
+        }
+    }
+`;

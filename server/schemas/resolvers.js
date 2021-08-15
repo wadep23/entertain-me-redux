@@ -15,7 +15,10 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('friends')
-                    // Need API Fetch Data here
+                    .populate('favoriteMovies')
+                    .populate('favoriteTvShows')
+                    .populate('favoriteGames')
+                    .populate('createdPosts')
                 return userData    
             }
 
@@ -25,13 +28,19 @@ const resolvers = {
             return User.find()
                 .select('-__v -password')
                 .populate('friends')
-                // Need API Fetch Data here
+                .populate('favoriteMovies')
+                .populate('favoriteTvShows')
+                .populate('favoriteGames')
+                .populate('createdPosts')
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
                 .populate('friends')
-                // Need API Fetch Data here
+                .populate('favoriteMovies')
+                .populate('favoriteTvShows')
+                .populate('favoriteGames')
+                .populate('createdPosts')
         },
         posts: async () => {
             return Post.find()
@@ -179,6 +188,19 @@ const resolvers = {
 
             throw new AuthenticationError('You must be logged in to save a favorite movie!')
         },
+        removeMovie: async (parent, { movieId }, context) => {
+            if (context.user) {
+                const deleteMovieArr = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { favoriteMovies: { movieId } } },
+                    { new: true }
+                )
+
+                return deleteMovieArr
+            }
+
+            throw new AuthenticationError('You must be logged in to do this!')
+        },
         saveTvShow: async (parent, { tvShowId, tvShowName, tvShowPoster, tvShowDetails, tvShowRating }, context) => {
             if (context.user) {
                 const addFavTvShow = await User.findOneAndUpdate(
@@ -192,6 +214,19 @@ const resolvers = {
 
             throw new AuthenticationError('You must be logged in to save a favorite tv show!')
         },
+        removeTvShow: async (parent, { tvShowId }, context) => {
+            if (context.user) {
+                const deleteShowArr = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { favoriteTvShows: { tvShowId } } },
+                    { new: true }
+                )
+
+                return deleteShowArr
+            }
+
+            throw new AuthenticationError('You must be logged in to do this!')
+        },
         saveGame: async (parent, { gameId, gameName, gamePoster, gameRating}, context)  => {
             if (context.user) {
                 const addFavGame = await User.findOneAndUpdate(
@@ -204,7 +239,20 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You must be logged in to save a favorite game!')
-        }
+        },
+        removeGame: async (parent, { gameId }, context) => {
+            if (context.user) {
+                const deleteGameArr = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { favoriteGames: { gameId } } },
+                    { new: true }
+                )
+
+                return deleteGameArr
+            }
+
+            throw new AuthenticationError('You must be logged in to do this!')
+        },
     }     
 };
 
