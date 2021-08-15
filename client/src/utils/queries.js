@@ -87,6 +87,11 @@ export const QUERY_SELF = gql`
         gameRating
         gameDetails
       }
+      createdPosts {
+        username
+        createdAt
+        postText
+      }
     }
   }
 `;
@@ -122,6 +127,11 @@ export const QUERY_USER = gql`
         gamePoster
         gameRating
         gameDetails
+      }
+      createdPosts {
+        username
+        createdAt
+        postText
       }
     }
   }
