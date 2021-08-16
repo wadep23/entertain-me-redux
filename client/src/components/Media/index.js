@@ -152,7 +152,7 @@ const searchMedia = () => {
         }
     };
 
-    return ();
+    return;
 };
 
 export default searchMedia
