@@ -51,7 +51,6 @@ const LoginForm = () => {
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
-          variant="danger"
         >
           Something went wrong with your login credentials!
         </Alert>
@@ -87,7 +86,7 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          variant="success"
+          variant="dark"
         >
           Submit
         </Button>
