@@ -1,7 +1,9 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
-
+import { FaLaughSquint, FaHeart, FaSadCry } from "react-icons/fa";
+import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass } from "react-icons/gi";
+import { RiAliensFill } from "react-icons/ri";
 
 
 
@@ -19,6 +21,19 @@ const Movie = props => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing movie search.
         </h2>
+        <section id="movies">
+                <container>
+                <button type="button" id="Action" value="28"><GiPistolGun />Action</button>
+                <button type="button" id="Adventure" value="12"><GiEarthAmerica />Adventure</button>
+                <button type="button" id="Comedy" value="35"><FaLaughSquint />Comedy</button>
+                <button type="button" id="Romance" value="10749"><FaHeart />Romance</button>
+                <button type="button" id="Sci-Fi" value="878"><RiAliensFill />Sci-Fi</button>
+                <button type="button" id="Horror" value="27"><GiGhost />Horror</button>
+                <button type="button" id="Drama" value="18"><FaSadCry />Drama</button>
+                <button type="button" id="Fantasy" value="14"><GiUnicorn />Fantasy</button>
+                <button type="button" id="Mystery" value="9648"><GiMagnifyingGlass />Mystery</button>
+                </container>
+            </section>
         <button className="btn ml-auto">
           Add Favorite
         </button>
