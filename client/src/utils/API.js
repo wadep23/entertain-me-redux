@@ -1,16 +1,25 @@
+import React, { useQuery } from 'react';
+import { 
+    MOVIE_API_QUERY, 
+    TV_API_QUERY, 
+    GAME_API_QUERY, 
+    TRAILER_API_QUERY }from '../../utils/queries';
 
-let randomNumber = Math.floor(Math.random() * 500);
+export const MovieQuery = async (genre) => {
+    const { loading, data } = useQuery(MOVIE_API_QUERY, {
+        variables: { genre: genre }
+    });
+    
+    const response = await data
 
-// let randomNumber = Math.floor(Math.random() * 500);
+    if (!response.ok) {
+        throw new Error('Something went wrong, we apologize!');
+    }
 
-// export const movieQuery = (key, genre) => {
-//   return fetch(
-//     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-//       key +
-//       "&language=en-US&page=1&with_genres=" +
-//       genre
-//   );
-// };
+    const { movies } = await response.json();
+
+    return movies
+};
 
 // export const tvQuery = (genre) => {
 //   return fetch(

@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
+import Media from "./components/Media";
 require("dotenv").config();
 
 const httpLink = createHttpLink({
@@ -39,11 +40,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
+          {/* <Navbar />
           <Switch>
             <Login />
           </Switch>
-          <Profile />
+          <Profile /> */}
+        <Media />
         </>
       </Router>
     </ApolloProvider>

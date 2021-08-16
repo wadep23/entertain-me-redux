@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { MovieQuery } from '../../utils/API';
 import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { SAVE_GAME, SAVE_MOVIE, SAVE_TV_SHOW } from '../../utils/mutations';
-import { 
-MOVIE_API_QUERY, 
-TV_API_QUERY, 
-GAME_API_QUERY, 
-TRAILER_API_QUERY }from '../../utils/queries';
+// import { 
+// MOVIE_API_QUERY, 
+// TV_API_QUERY, 
+// GAME_API_QUERY, 
+// TRAILER_API_QUERY }from '../../utils/queries';
 import Auth from '../../utils/auth';
 import { saveMediaIds, getSavedIds } from '../../utils/saveMedia';
 
-const searchMedia = () => {
+const SearchMedia = () => {
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState(getSavedIds());
     
@@ -18,10 +19,23 @@ const searchMedia = () => {
     const [saveMovie] = useMutation(SAVE_MOVIE);
     const [saveTvShow] = useMutation(SAVE_TV_SHOW);
 
-    const [movieQuery] = useQuery(MOVIE_API_QUERY);
-    const [tvQuery] = useQuery(TV_API_QUERY);
-    const [gameQuery] = useQuery(GAME_API_QUERY);
-    const [trailerQuery] = useQuery(TRAILER_API_QUERY);
+    //  function MultiQuery() {
+    //     const movie = useQuery(MOVIE_API_QUERY);
+    //     const tv = useQuery(TV_API_QUERY);
+    //     const game = useQuery(GAME_API_QUERY);
+    //     const trailer = useQuery(TRAILER_API_QUERY);
+
+    //     const loading = movie.loading || tv.loading || game.loading || trailer.loading
+
+    //     if (loading) {
+    //         return <p>Loading...</p>
+    //     }
+    // }
+
+    const { loading, data } = useQuery(MOVIE_API_QUERY);
+    const { loading, data } = useQuery(TV_API_QUERY);
+    const { loading, data } = useQuery(GAME_API_QUERY);
+    const { loading, data } = useQuery(TRAILER_API_QUERY);
     
     useEffect(() => {
         return () => saveMediaIds(savedMedia)
@@ -33,15 +47,9 @@ const searchMedia = () => {
 
         if (mediaType === 'Movie') {
             try {
-                const response = await movieQuery(genre);
+                const movies = await MovieQuery(genre);
 
-                if (!response.ok) {
-                    throw new Error('Something went wrong, we apologize!');
-                }
-
-                const { movie } = await response.json();
-
-                const movieData = movie.map((movie) => ({
+                const movieData = movies.map((movie) => ({
                    movieId: movie.id,
                    movieName: movie.original_title,
                    moviePoster: `${imgLink} + ${movie.poster_path}`,
@@ -49,54 +57,54 @@ const searchMedia = () => {
                    movieRating: movie.vote_average
                 }));
 
-                setSavedMedia(movieData);
+                setSearchedMedia(movieData);
             } catch (err) {
                 console.error(err);
             }
-        } else if (mediaType === 'TV Show') {
-            try {
-                const response = await tvQuery(genre);
+        // } else if (mediaType === 'TV Show') {
+        //     try {
+        //         const response = await tvQuery(genre);
 
-                if (!response.ok) {
-                    throw new Error('Something went wrong, we apologize');
-                }
+        //         if (!response.ok) {
+        //             throw new Error('Something went wrong, we apologize');
+        //         }
 
-                const { tvShow } = await response.json();
+        //         const { tvShow } = await response.json();
 
-                const showData = tvShow.map((tvShow) => ({
-                   tvShowId: tvShow.id,
-                   tvShowName: tvShow.original_title,
-                   tvShowPoster: `${imgLink} + ${tvShow.poster_path}`,
-                   tvShowDetails: tvShow.overview,
-                   tvShowRating: tvShow.vote_average
-                }));
+        //         const showData = tvShow.map((tvShow) => ({
+        //            tvShowId: tvShow.id,
+        //            tvShowName: tvShow.original_title,
+        //            tvShowPoster: `${imgLink} + ${tvShow.poster_path}`,
+        //            tvShowDetails: tvShow.overview,
+        //            tvShowRating: tvShow.vote_average
+        //         }));
 
-                setSavedMedia(showData);
-            } catch (err) {
-                console.error(err);
-            }
-        } else if (mediaType === 'Game') {
-            try {
-                const response = await gameQuery(genre, platform);
+        //         setSearchedMedia(showData);
+        //     } catch (err) {
+        //         console.error(err);
+        //     }
+        // } else if (mediaType === 'Game') {
+        //     try {
+        //         const response = await gameQuery(genre, platform);
 
-                if (!response.ok) {
-                    throw new Error('Something went wrong, we apologize');
-                }
+        //         if (!response.ok) {
+        //             throw new Error('Something went wrong, we apologize');
+        //         }
 
-                const { game } = await response.json();
+        //         const { game } = await response.json();
 
-                const gameData = game.map((game) => ({
-                    gameId: game.id,
-                    gameName: game.name,
-                    gamePoster: game.background_image,
-                    gameRating: game.rating,
-                }));
+        //         const gameData = game.map((game) => ({
+        //             gameId: game.id,
+        //             gameName: game.name,
+        //             gamePoster: game.background_image,
+        //             gameRating: game.rating,
+        //         }));
                 
-                setSavedMedia(gameData);
-            } catch (err) {
-                console.error(err);
-            }
-        };
+        //         setSearchedMedia(gameData);
+        //     } catch (err) {
+        //         console.error(err);
+        //     }
+        // };
     };
 
     const handleSaveMedia = async (mediaId, mediaType) => {
@@ -152,7 +160,11 @@ const searchMedia = () => {
         }
     };
 
-    return ();
+    return (
+        <div>
+            hi
+        </div>
+    );
 };
 
-export default searchMedia
+export default SearchMedia
