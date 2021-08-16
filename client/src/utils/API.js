@@ -1,25 +1,27 @@
-import React, { useQuery } from 'react';
-import { 
-    MOVIE_API_QUERY, 
-    TV_API_QUERY, 
-    GAME_API_QUERY, 
-    TRAILER_API_QUERY }from '../../utils/queries';
+// import React from 'react';
+// import { useQuery } from '@apollo/client';
+// import { 
+//     MOVIE_API_QUERY, 
+//     TV_API_QUERY, 
+//     GAME_API_QUERY, 
+//     TRAILER_API_QUERY }from './queries';
 
-export const MovieQuery = async (genre) => {
-    const { loading, data } = useQuery(MOVIE_API_QUERY, {
-        variables: { genre: genre }
-    });
+// export const MovieQuery = async (genre) => {
+//     const { loading, data } = useQuery(MOVIE_API_QUERY, {
+//         variables: { genre: genre }
+//     });
     
-    const response = await data
 
-    if (!response.ok) {
-        throw new Error('Something went wrong, we apologize!');
-    }
+//     const response = await data
 
-    const { movies } = await response.json();
+//     if (!response.ok) {
+//         throw new Error('Something went wrong, we apologize!');
+//     }
 
-    return movies
-};
+//     const { movies } = await response.json();
+
+//     return movies
+// };
 
 // export const tvQuery = (genre) => {
 //   return fetch(

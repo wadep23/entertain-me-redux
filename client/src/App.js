@@ -40,11 +40,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Navbar />
-          <Switch>
+          <Navbar />
+          {/* <Switch>
             <Login />
-          </Switch>
-          <Profile /> */}
+            <Profile />
+          </Switch> */}
+          
         <Media />
         </>
       </Router>

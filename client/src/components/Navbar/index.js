@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logoImg from "../../assets/images/entertain-me-logo.png";
 // import LoginForm from "../LoginForm";
 // import SignUpForm from "../SignUpForm";
 
@@ -47,6 +48,16 @@ const AppNavbar = () => {
         </Container>
       </Navbar>
       <UserModal showModal={showModal} setShowModal={setShowModal} />
+      <header>
+        <img src={logoImg} alt="logo"></img>
+        <h4>Your go-to site when you just don't know what to watch!</h4>
+        {/* <button onClick={clickHandler}>Movie Query Test</button> */}
+        {/* <div className="video-box">
+          <iframe title="youtube" id="video" className="video">
+            Hello
+          </iframe>
+        </div> */}
+      </header>
     </div>
   );
 };

@@ -52,6 +52,7 @@ const resolvers = {
             const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
             + movieKey + "&language=en-US&page=" + randomPageNumber + 
             "&with_genres=" + genre);
+            console.log(url)
             
             const response = await fetch(url)
             const data = await response.json();
