@@ -13,9 +13,10 @@ const UserModal = (props) => {
         show={showModal}
         onHide={() => setShowModal(false)}
         aria-labelledby="signup-modal"
+        dialogClassName={"primaryModal"}
       >
         {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey="login">
+        <Tab.Container defaultActiveKey="login" id="modalContainer">
           <Modal.Header closeButton>
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
@@ -30,7 +31,7 @@ const UserModal = (props) => {
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              <Tab.Pane eventKey="login">
+              <Tab.Pane dialogueClassName={"logButton"} eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
               <Tab.Pane eventKey="signup">
