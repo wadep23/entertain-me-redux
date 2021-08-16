@@ -20,9 +20,9 @@ const AppNavbar = () => {
             <Nav className="me-auto">
               <Nav.Link onClick={() => setShowModal(true)}>Home</Nav.Link>
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#movies">Movies</NavDropdown.Item>
-                <NavDropdown.Item href="#television">TV</NavDropdown.Item>
-                <NavDropdown.Item href="#videogames">
+                <NavDropdown.Item href="#movies" as={Link} to="/movie">Movies</NavDropdown.Item>
+                <NavDropdown.Item href="#television" as={Link} to="/tv">TV</NavDropdown.Item>
+                <NavDropdown.Item href="#videogames" as={Link} to="/game">
                   Video Games
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

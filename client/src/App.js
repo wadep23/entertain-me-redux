@@ -12,8 +12,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import SignUpForm from "./components/SignUpForm";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
-import Profile from "./components/Profile";
-import Media from "./components/Media";
+import Profile from "./pages/Profile";
+import Game from "./pages/Game";
+import Movie from "./pages/Movie";
+import Tv from "./pages/Tv";
+
+import { MOVIE_API_QUERY } from "./utils/queries";
 require("dotenv").config();
 
 const httpLink = createHttpLink({
@@ -39,15 +43,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <div>
           <Navbar />
-          {/* <Switch>
-            <Login />
-            <Profile />
-          </Switch> */}
-          
-        <Media />
-        </>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/tv" component={Tv} />
+            <Route exact path="/movie" component={Movie} />
+            <Route exact path="/game" component={Game} />
+          </Switch>
+        </div>
       </Router>
     </ApolloProvider>
   );
