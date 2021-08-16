@@ -2,9 +2,11 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { GiSwordsPower, GiAudioCassette, GiSwordBrandish, GiChessRook, GiFamilyHouse, GiVrHeadset, GiJoystick, GiRunningNinja, GiSteeringWheel, GiHighKick, GiBrain, GiCard2Hearts } from "react-icons/gi";
-import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaHeadset, FaChessBoard } from "react-icons/fa";
+import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaHeadset, FaChessBoard, FaPlaystation, FaXbox } from "react-icons/fa";
 import { BiCool } from "react-icons/bi";
-import { IoAmericanFootballSharp } from "react-icons/io5";
+import { FiMonitor } from "react-icons/fi";
+import { SiNintendoswitch } from "react-icons/si";
+import { IoAmericanFootballSharp, IoGameControllerOutline } from "react-icons/io5";
 
 
 
@@ -21,9 +23,17 @@ const Game = props => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing game search.
+          <IoGameControllerOutline /> Viewing game search.
         </h2>
         <section id="video-games">
+        <container>
+                <button type="button" id="playstation" value="2"><FaPlaystation  /> Playstation</button>
+                <button type="button" id="xbox" value="3"><FaXbox  /> XBOX</button>
+                <button type="button" id="pc" value="1"><FiMonitor  /> PC</button>
+                <button type="button" id="nintendo" value="7"><SiNintendoswitch  /> Nintendo</button>
+                </container>
+                <br />
+                <br />
           <container>
             <button type="button" id="action" value="action"><GiSwordsPower /> Action</button>
             <button type="button" id="indie" value="indie"><GiAudioCassette /> Indie</button>

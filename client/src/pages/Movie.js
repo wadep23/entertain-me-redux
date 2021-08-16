@@ -2,8 +2,9 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { FaLaughSquint, FaHeart, FaSadCry, FaRegPlayCircle } from "react-icons/fa";
-import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass, GiTheaterCurtains } from "react-icons/gi";
+import { GiFilmProjector, GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass, GiTheaterCurtains } from "react-icons/gi";
 import { RiAliensFill } from "react-icons/ri";
+
 
 
 
@@ -19,10 +20,10 @@ const Movie = props => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing movie search.
+          <GiFilmProjector /> Viewing movie search.
         </h2>
         <section id="movieButtons">
-        <container>
+                <container>
                 <button type="button" value="theaters"><GiTheaterCurtains /> Amphitheatre</button>
                 <button type="button" value="streaming"><FaRegPlayCircle /> Streaming</button>
                 </container>

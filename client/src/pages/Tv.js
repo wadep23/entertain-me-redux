@@ -2,11 +2,12 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { FaLaughSquint, FaSadCry, FaChild, FaHatCowboy } from "react-icons/fa";
-import { GiSwordwoman, GiHandcuffs, GiGhost, GiFamilyHouse, GiMagnifyingGlass, GiNewspaper, GiLightSabers, GiSoap } from "react-icons/gi";
+import { GiTvRemote, GiSwordwoman, GiHandcuffs, GiGhost, GiFamilyHouse, GiMagnifyingGlass, GiNewspaper, GiLightSabers, GiSoap } from "react-icons/gi";
 import { RiKakaoTalkLine } from "react-icons/ri";
 import { BiCameraMovie } from "react-icons/bi";
 import { BsFillPeopleFill, BsPencil } from "react-icons/bs";
 import { GoLaw } from "react-icons/go";
+
 
 
 
@@ -23,7 +24,7 @@ const Tv = props => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing television search.
+          <GiTvRemote /> Viewing television search.
         </h2>
         <section id="tvButtons">
           <container>
