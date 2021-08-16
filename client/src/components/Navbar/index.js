@@ -42,7 +42,7 @@ const AppNavbar = () => {
               {/* if user is logged in show saved media and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/profile">
+                  <Nav.Link as={Link} to="/profile/:username?">
                     See Your Media
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
