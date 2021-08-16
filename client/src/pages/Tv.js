@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { FaLaughSquint, FaSadCry, FaChild, FaHatCowboy } from "react-icons/fa";
-import { GiSwordwoman, GiHandcuffs, GiGhost, GiFamilyHouse , GiMagnifyingGlass, GiNewspaper, GiLightSabers, GiSoap } from "react-icons/gi";
+import { GiSwordwoman, GiHandcuffs, GiGhost, GiFamilyHouse, GiMagnifyingGlass, GiNewspaper, GiLightSabers, GiSoap } from "react-icons/gi";
 import { RiKakaoTalkLine } from "react-icons/ri";
 import { BiCameraMovie } from "react-icons/bi";
 import { BsFillPeopleFill, BsPencil } from "react-icons/bs";

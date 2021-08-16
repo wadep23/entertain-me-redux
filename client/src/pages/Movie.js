@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import Auth from '../utils/auth';
-import { FaLaughSquint, FaHeart, FaSadCry } from "react-icons/fa";
-import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass } from "react-icons/gi";
+import { FaLaughSquint, FaHeart, FaSadCry, FaRegPlayCircle } from "react-icons/fa";
+import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass, GiTheaterCurtains } from "react-icons/gi";
 import { RiAliensFill } from "react-icons/ri";
 
 
@@ -22,6 +22,12 @@ const Movie = props => {
           Viewing movie search.
         </h2>
         <section id="movieButtons">
+        <container>
+                <button type="button" value="theaters"><GiTheaterCurtains /> Amphitheatre</button>
+                <button type="button" value="streaming"><FaRegPlayCircle /> Streaming</button>
+                </container>
+                <br />
+                <br />
                 <container>
                 <button type="button" id="Action" value="28"><GiPistolGun /> Action</button>
                 <button type="button" id="Adventure" value="12"><GiEarthAmerica /> Adventure</button>
