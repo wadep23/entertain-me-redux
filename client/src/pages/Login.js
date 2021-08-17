@@ -52,7 +52,7 @@ function Login() {
 
               <Carousel.Caption>
                 <h3>
-                  Binge the shows that everyone is raving about!
+                  Binge the shows that everyone is talking about!
                 </h3>
               </Carousel.Caption>
             </Carousel.Item>
