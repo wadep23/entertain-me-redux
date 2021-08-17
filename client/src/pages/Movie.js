@@ -1,5 +1,6 @@
 import React from 'react';
-import Auth from '../utils/auth';
+import { Redirect } from 'react-router';
+import auth from '../utils/auth';
 import SearchMedia from '../components/Movie'
 import { GiFilmProjector} from "react-icons/gi";
 

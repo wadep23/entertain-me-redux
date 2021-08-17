@@ -1,19 +1,6 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-
-// import { GiSwordsPower, GiAudioCassette, GiSwordBrandish, GiChessRook, GiFamilyHouse, GiVrHeadset, GiJoystick, GiRunningNinja, GiSteeringWheel, GiHighKick, GiBrain, GiCard2Hearts } from "react-icons/gi";
-// import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaHeadset, FaChessBoard, FaPlaystation, FaXbox } from "react-icons/fa";
-// import { BiCool } from "react-icons/bi";
-// import { FiMonitor } from "react-icons/fi";
-// import { SiNintendoswitch } from "react-icons/si";
-// import { IoAmericanFootballSharp, IoGameControllerOutline } from "react-icons/io5";
 import auth from '../utils/auth';
-
-
-
-
-
-
 
 
 
@@ -26,39 +13,8 @@ const Game = props => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          <IoGameControllerOutline /> Viewing game search.
+          Viewing game search.
         </h2>
-        <section id="video-games">
-        <container>
-                <button type="button" id="playstation" value="2"><FaPlaystation  /> Playstation</button>
-                <button type="button" id="xbox" value="3"><FaXbox  /> XBOX</button>
-                <button type="button" id="pc" value="1"><FiMonitor  /> PC</button>
-                <button type="button" id="nintendo" value="7"><SiNintendoswitch  /> Nintendo</button>
-                </container>
-                <br />
-                <br />
-          <container>
-            <button type="button" id="action" value="action"><GiSwordsPower /> Action</button>
-            <button type="button" id="indie" value="indie"><GiAudioCassette /> Indie</button>
-            <button type="button" id="adventure" value="adventure"><GiSwordBrandish /> Adventure</button>
-            <button type="button" id="rpg" value="rpg"><FaDiceD20 /> RPG</button>
-            <button type="button" id="strategy" value="strategy"><GiChessRook /> Strategy</button>
-            <button type="button" id="shooter" value="shooter"><FaCrosshairs /> FPS/Shooter</button>
-            <button type="button" id="casual" value="casual"><BiCool /> Casual</button>
-            <button type="button" id="simulation" value="simulation"><GiVrHeadset /> Simulation</button>
-            <button type="button" id="puzzle" value="puzzle"><FaPuzzlePiece /> Puzzle</button>
-            <button type="button" id="arcade" value="arcade"><GiJoystick /> Arcade</button>
-            <button type="button" id="platformer" value="platformer"><GiRunningNinja /> Platformer</button>
-            <button type="button" id="racing" value="racing"><GiSteeringWheel /> Racing</button>
-            <button type="button" id="massively-multiplayer" value="massively-multiplayer"><FaHeadset /> Massively-Multiplayer</button>
-            <button type="button" id="sports" value="sports"><IoAmericanFootballSharp /> Sports</button>
-            <button type="button" id="fighting" value="fighting"><GiHighKick /> Fighting</button>
-            <button type="button" id="family" value="family"><GiFamilyHouse /> Family</button>
-            <button type="button" id="board-games" value="board-games"><FaChessBoard /> Board Games</button>
-            <button type="button" id="educational" value="educational"><GiBrain /> Education</button>
-            <button type="button" id="card" value="card"><GiCard2Hearts /> Card</button>
-          </container>
-        </section>
         <button className="btn ml-auto">
           Add favorite
         </button>
