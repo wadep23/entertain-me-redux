@@ -14,7 +14,7 @@ const Movie = () => {
       <div>
         <div className="flex-row mb-3">
           <h2 className="bg-dark text-secondary p-3 display-inline-block text-center">
-            <GiFilmProjector /> Choose a movie genre: 
+            <GiFilmProjector /> Select a movie genre: 
           </h2>
           <SearchMedia />
         </div>

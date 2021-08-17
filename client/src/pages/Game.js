@@ -13,7 +13,7 @@ const Game = props => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing game search.
+          Select a Video Game Genre
         </h2>
         <button className="btn ml-auto">
           Add favorite
