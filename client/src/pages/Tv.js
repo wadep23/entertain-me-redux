@@ -1,41 +1,24 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import auth from '../utils/auth';
+import SearchMedia from '../components/TV'
 
-
-
-
-
-
-
-
-
-const Tv = props => {
+const Tv = () => {
   if (!auth.loggedIn()) {
     return <Redirect to ="/" />
-  } 
-
+  }
+  
   return (
-    <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing television search.
-        </h2>
-        <button className="btn ml-auto">
-          Add Friend
-        </button>
-      </div>
-
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          
-        </div>
-
-        <div className="col-12 col-lg-3 mb-3">
+    <main>
+      <div>
+        <div className="flex-row mb-3">
+          <h2 className="bg-dark text-secondary p-3 display-inline-block">
+            So, you need a show to watch? Click on a genre below and watch the magic happen!
+          </h2>
+          <SearchMedia />
         </div>
       </div>
-      <div></div>
-    </div>
+    </main> 
 )};
 
 export default Tv;

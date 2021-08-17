@@ -101,8 +101,8 @@ export const SAVE_TV_SHOW = gql`
       tvShowId: $tvShowId
       tvShowName: $tvShowName
       tvShowPoster: $tvShowPoster
-      tvShowDetails: $movieDetails
-      movieRating: $movieRating
+      tvShowDetails: $tvShowDetails
+      tvShowRating: $tvShowRating
     ) {
       _id
       username

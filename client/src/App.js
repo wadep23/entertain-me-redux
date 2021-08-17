@@ -40,7 +40,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div fluid>
           <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
