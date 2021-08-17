@@ -52,6 +52,7 @@ const resolvers = {
             const url = ("https://api.themoviedb.org/3/discover/movie?api_key="
             + movieKey + "&language=en-US&page=" + randomPageNumber + 
             "&with_genres=" + genre);
+            console.log(url)
             
             const response = await fetch(url)
             const data = await response.json();
@@ -98,7 +99,7 @@ const resolvers = {
         },
         trailer: async (parent, { mediaTitle }) => {
             const url = ("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="
-            + (mediaTitle + "trailer") + "&key=" + trailerKey);
+            + mediaTitle + "&key=" + trailerKey);
             const response = await fetch(url);
             const data = await response.json();
             const videoData = {

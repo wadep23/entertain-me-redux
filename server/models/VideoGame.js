@@ -16,9 +16,6 @@ const videoGameSchema = new Schema(
         gameRating: {
             type: String
         },
-        gameDescription: {
-            type: String
-        }
     }
 );
 

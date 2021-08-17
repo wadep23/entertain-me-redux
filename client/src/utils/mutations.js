@@ -55,7 +55,7 @@ export const SAVE_MOVIE = gql`
     $movieName: String!
     $moviePoster: String
     $movieDetails: String!
-    $movieRating: String
+    $movieRating: Float
   ) {
     saveMovie(
       movieId: $movieId
@@ -95,7 +95,7 @@ export const SAVE_TV_SHOW = gql`
     $tvShowName: String!
     $tvShowPoster: String
     $tvShowDetails: String!
-    $tvShowRating: String
+    $tvShowRating: Float
   ) {
     saveTvShow(
       tvShowId: $tvShowId
@@ -134,7 +134,7 @@ export const SAVE_GAME = gql`
     $gameId: ID!
     $gameName: String!
     $gamePoster: String
-    $gameRating: String
+    $gameRating: Float
   ) {
     savegame(
       gameId: $gameId

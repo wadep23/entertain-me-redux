@@ -85,7 +85,6 @@ export const QUERY_SELF = gql`
         gameName
         gamePoster
         gameRating
-        gameDetails
       }
       createdPosts {
         username
