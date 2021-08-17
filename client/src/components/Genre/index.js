@@ -25,23 +25,23 @@ const GenreButtons = () => {
             
                 return <section id="tv">
                 <container>
-                <button type="button" id="Action/Adventure" value="10759"><GiSwordwoman />Action/Adventure</button>
-                <button type="button" id="Animation" value="16"><ImPencil2 />Animation</button>
-                <button type="button" id="Comedy" value="35"><FaLaughSquint />Comedy</button>
-                <button type="button" id="Crime" value="80"><GiHandcuffs />Crime</button>
-                <button type="button" id="Documentary" value="99"><BiCameraMovie />Sci-Fi</button>
-                <button type="button" id="Horror" value="27"><GiGhost />Horror</button>
-                <button type="button" id="Drama" value="18"><FaSadCry />Drama</button>
-                <button type="button" id="Family" value="10751"><GiFamilyHouse />Family</button>
-                <button type="button" id="Kids" value="10762"><FaChild />Kids</button>
-                <button type="button" id="Mystery" value="9648"><GiMagnifyingGlass />Mystery</button>
-                <button type="button" id="News" value="10763"><GiNewspaper />News</button>
-                <button type="button" id="Reality" value="10764"><BsFillPeopleFill />Reality</button>
-                <button type="button" id="SciFiFantasy" value="10765"><GiLightSabers />Sci-Fi/Fantasy</button>
-                <button type="button" id="Soap" value="10766"><GiSoap />Soap</button>
-                <button type="button" id="Talk" value="10767"><RiKakaoTalkLine />Talk</button>
-                <button type="button" id="WarPolitics" value="10768"><GoLaw />Mystery</button>
-                <button type="button" id="Western" value="37"><FaHatCowboy />Western</button>
+                {/* <button type="button" id="Action/Adventure" value="10759"><GiSwordwoman />Action/Adventure</button> */}
+                {/* <button type="button" id="Animation" value="16"><ImPencil2 />Animation</button> */}
+                {/* <button type="button" id="Comedy" value="35"><FaLaughSquint />Comedy</button> */}
+                {/* <button type="button" id="Crime" value="80"><GiHandcuffs />Crime</button> */}
+                {/* <button type="button" id="Documentary" value="99"><BiCameraMovie />Sci-Fi</button> */}
+                {/* <button type="button" id="Horror" value="27"><GiGhost />Horror</button> */}
+                {/* <button type="button" id="Drama" value="18"><FaSadCry />Drama</button> */}
+                {/* <button type="button" id="Family" value="10751"><GiFamilyHouse />Family</button> */}
+                {/* <button type="button" id="Kids" value="10762"><FaChild />Kids</button> */}
+                {/* <button type="button" id="Mystery" value="9648"><GiMagnifyingGlass />Mystery</button> */}
+                {/* <button type="button" id="News" value="10763"><GiNewspaper />News</button> */}
+                {/* <button type="button" id="Reality" value="10764"><BsFillPeopleFill />Reality</button> */}
+                {/* <button type="button" id="SciFiFantasy" value="10765"><GiLightSabers />Sci-Fi/Fantasy</button> */}
+                {/* <button type="button" id="Soap" value="10766"><GiSoap />Soap</button> */}
+                {/* <button type="button" id="Talk" value="10767"><RiKakaoTalkLine />Talk</button> */}
+                {/* <button type="button" id="WarPolitics" value="10768"><GoLaw />Mystery</button> */}
+                {/* <button type="button" id="Western" value="37"><FaHatCowboy />Western</button> */}
                 </container>
             </section>
 

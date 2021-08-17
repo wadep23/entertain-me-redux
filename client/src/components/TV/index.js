@@ -5,6 +5,12 @@ import { SAVE_TV_SHOW, ADD_POST } from '../../utils/mutations';
 import { TV_API_QUERY, QUERY_SELF }from '../../utils/queries';
 import TrailerModal from '../TrailerModal';
 import Auth from '../../utils/auth';
+import { GiHandcuffs, GiNewspaper, GiLightSabers, GiFamilyHouse, GiSoap, GiSwordwoman, GiMagnifyingGlass } from "react-icons/gi";
+import { FaLaughSquint, FaSadCry, FaChild, FaHatCowboy } from "react-icons/fa";
+import { BiCameraMovie } from "react-icons/bi";
+import { BsFillPeopleFill, BsPencil} from "react-icons/bs";
+import { RiKakaoTalkLine } from "react-icons/ri";
+import { GoLaw } from "react-icons/go";
 
 const SearchMedia = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
@@ -66,44 +72,68 @@ const SearchMedia = () => {
             <Container>
                 <Row fluid>
                     <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10759 }})}}
+                         ><GiSwordwoman />Action/Adventure</button>
+                    </Col>
+                    <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 16 }})}}
-                        >Animation</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 80 }})}}
-                        >Crime</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 99 }})}}
-                         >Documentary</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10751 }})}}
-                         >Family</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10763 }})}}
-                         >News</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10764 }})}}
-                         >Reality</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
-                         >Drama</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10765 }})}}
-                         >Sci-Fi & Fantasy</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10766 }})}}
-                         >Soap</button>
+                        ><BsPencil /> Animation</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 35 }})}}
-                         >Comedy</button>
+                         ><FaLaughSquint /> Comedy</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 80 }})}}
+                        ><GiHandcuffs /> Crime</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 99 }})}}
+                         ><BiCameraMovie /> Documentary</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
+                         ><FaSadCry /> Drama</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10751 }})}}
+                         ><GiFamilyHouse /> Family</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10762 }})}}
+                         ><FaChild /> Kids</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 9648 }})}}
+                         ><GiMagnifyingGlass /> Mystery</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10763 }})}}
+                         ><GiNewspaper /> News</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10764 }})}}
+                         ><BsFillPeopleFill /> Reality</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10765 }})}}
+                         ><GiLightSabers /> Sci-Fi & Fantasy</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10766 }})}}
+                         ><GiSoap /> Soap</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10767 }})}}
+                         ><RiKakaoTalkLine /> Talk</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10768 }})}}
+                         ><GoLaw /> War & Politics</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 37 }})}}
+                         ><FaHatCowboy /> Western</button>
                     </Col>
                 </Row>
                 <Row>
