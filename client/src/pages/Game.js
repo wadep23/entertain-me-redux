@@ -1,12 +1,13 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import Auth from '../utils/auth';
-import { GiSwordsPower, GiAudioCassette, GiSwordBrandish, GiChessRook, GiFamilyHouse, GiVrHeadset, GiJoystick, GiRunningNinja, GiSteeringWheel, GiHighKick, GiBrain, GiCard2Hearts } from "react-icons/gi";
-import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaHeadset, FaChessBoard, FaPlaystation, FaXbox } from "react-icons/fa";
-import { BiCool } from "react-icons/bi";
-import { FiMonitor } from "react-icons/fi";
-import { SiNintendoswitch } from "react-icons/si";
-import { IoAmericanFootballSharp, IoGameControllerOutline } from "react-icons/io5";
+
+// import { GiSwordsPower, GiAudioCassette, GiSwordBrandish, GiChessRook, GiFamilyHouse, GiVrHeadset, GiJoystick, GiRunningNinja, GiSteeringWheel, GiHighKick, GiBrain, GiCard2Hearts } from "react-icons/gi";
+// import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaHeadset, FaChessBoard, FaPlaystation, FaXbox } from "react-icons/fa";
+// import { BiCool } from "react-icons/bi";
+// import { FiMonitor } from "react-icons/fi";
+// import { SiNintendoswitch } from "react-icons/si";
+// import { IoAmericanFootballSharp, IoGameControllerOutline } from "react-icons/io5";
+import auth from '../utils/auth';
 
 
 
@@ -17,7 +18,9 @@ import { IoAmericanFootballSharp, IoGameControllerOutline } from "react-icons/io
 
 
 const Game = props => {
-  
+  if (!auth.loggedIn()) {
+    return <Redirect to ="/" />
+}
 
   return (
     <div>

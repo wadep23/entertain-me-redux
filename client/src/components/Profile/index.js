@@ -76,7 +76,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(movieId);
     }
     if (tvShowId) {
       await deleteContent({

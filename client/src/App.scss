@@ -78,6 +78,23 @@ Form {
   background-color: black;
 }
 
+.feed-header {
+  text-align: center;
+}
+
+.post-box {
+  background-color: black;
+  padding-bottom: 3px;
+  padding-top: 10px;
+  padding-left: 12px;
+  border-bottom: 2px solid $text-color;
+}
+
+.name-link {
+  text-decoration: none;
+  color: $text-color;
+}
+
 li {
   list-style: none;
   padding-bottom: 1%;
@@ -124,8 +141,18 @@ button:hover {
   z-index: 10;
 }
 
+<<<<<<< HEAD
 .logo {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
+=======
+.card-text {
+  color: $text-color
+}
+
+.card-title.h5 {
+  color: $text-color
+}
+>>>>>>> e5c1c9a219106d2c4a36302bc5f6463f1f8a1acd

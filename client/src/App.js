@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import Game from "./pages/Game";
 import Movie from "./pages/Movie";
 import Tv from "./pages/Tv";
+import Home from "./pages/Home";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -40,10 +41,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div fluid>
           <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/tv" component={Tv} />
             <Route exact path="/movie" component={Movie} />

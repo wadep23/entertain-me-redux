@@ -7,7 +7,7 @@ import {
 } from "../utils/mutations";
 import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
-import { Container, CardColumns, Card, Button } from "react-bootstrap";
+import { Container, CardColumns, Card, Button, Row, Col } from "react-bootstrap";
 import Auth from '../utils/auth';
 
 const Profile = () => {
@@ -24,6 +24,10 @@ const Profile = () => {
   });
 
   const userData = data?.me || data?.user || {};
+
+  if (!Auth.loggedIn()) {
+    return <Redirect to ="/" />
+  }
 
   if (Auth.loggedIn() && Auth.getUserData().username === userParam) {
     return <Redirect to="/profile/:username?" />;
@@ -76,7 +80,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(movieId);
+      
     }
     if (tvShowId) {
       await deleteContent({
@@ -95,7 +99,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(tvShowId);
+      ;
     }
     if (gameId) {
       await deleteContent({
@@ -114,7 +118,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(gameId);
+      
     }
   };
 
@@ -136,12 +140,18 @@ const Profile = () => {
     <>
       <div fluid className="text-light bg-dark">
         <Container>
-          <h2>{`${userData.username}'s`} Profile</h2>
-          {userParam && (
-            <button className="btn" onClick={handleClick}>
-              Add Friend
-            </button>
-          )}
+          <Row>
+            <Col md="4">
+              <h2>{`${userData.username}'s`} Profile</h2>
+            </Col>
+            <Col sm="auto">            
+              {userParam && (
+                <button onClick={handleClick} size="lg">
+                  Add Friend
+                </button>
+              )}
+            </Col>
+          </Row>
         </Container>
       </div>
       <Container>
@@ -150,7 +160,7 @@ const Profile = () => {
             ? `Viewing ${userData.favoriteMovies.length} saved ${
                 userData.favoriteMovies.length === 1 ? "movie" : "movies"
               }:`
-            : "You have no saved movies!"}
+            : "You have no saved Movies!"}
         </h2>
         <CardColumns>
           {userData.favoriteMovies.map((user) => {
@@ -184,7 +194,7 @@ const Profile = () => {
             ? `Viewing ${userData.favoriteTvShows.length} saved ${
                 userData.favoriteTvShows.length === 1 ? "tv show" : "tv shows"
               }:`
-            : "You have no saved Tv Shows!"}
+            : "You have no saved T.V. Shows!"}
         </h2>
         <CardColumns>
           {userData.favoriteTvShows.map((user) => {

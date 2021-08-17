@@ -4,7 +4,10 @@ import SearchMedia from '../components/Movie'
 import { GiFilmProjector} from "react-icons/gi";
 
 const Movie = () => {
-
+  if (!auth.loggedIn()) {
+    return <Redirect to ="/" />
+  }
+  
   return (
     <main>
       <div>
