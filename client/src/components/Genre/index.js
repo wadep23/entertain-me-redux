@@ -52,7 +52,7 @@ const GenreButtons = () => {
                 <button type="button" id="action" value="action"><GiSwordsPower />Action</button>
                 <button type="button" id="indie" value="indie"><GiAudioCassette/>Indie</button>
                 <button type="button" id="adventure" value="adventure"><GiSwordBrandish />Adventure</button>
-                <button type="button" id="rpg" value="rpg"><FaDiceD20 />RPG</button>
+                <button type="button" id="rpg" value="role-playing-games-rpg"><FaDiceD20 />RPG</button>
                 <button type="button" id="strategy" value="strategy"><GiChessRook />Strategy</button>
                 <button type="button" id="shooter" value="shooter"><FaCrosshairs />FPS/Shooter</button>
                 <button type="button" id="casual" value="casual"><BiCool />Casual</button>
