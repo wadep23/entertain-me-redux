@@ -9,6 +9,7 @@ const typeDefs = gql`
       friends: [User]
       favoriteMovies: [Movie]
       favoriteTvShows: [TV]
+      favoriteGames: [VideoGame]
       createdPosts: [Post]
     }
 
@@ -17,7 +18,7 @@ const typeDefs = gql`
         movieName: String
         moviePoster: String
         movieDetails: String
-        movieRating: String
+        movieRating: Float
     }
 
     type TV {
@@ -25,14 +26,14 @@ const typeDefs = gql`
         tvShowName: String
         tvShowPoster: String
         tvShowDetails: String
-        tvShowRating: String
+        tvShowRating: Float
     }
 
     type VideoGame {
       gameId: ID
       gameName: String
       gamePoster: String
-      gameRating: String
+      gameRating: Float
     }
 
     type Post {
@@ -92,9 +93,9 @@ const typeDefs = gql`
         addFriend(friendId: ID!): User
         removeFriend(friendId: ID!): User
         addPost(postText: String!): Post
-        saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: String): User
-        saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: String): User
-        saveGame(gameId: ID!, gameName: String!, gamePoster: String, gameDetails: String, gameRating: String): User
+        saveMovie(movieId: ID!, movieName: String!, moviePoster: String, movieDetails: String!, movieRating: Float): User
+        saveTvShow(tvShowId: ID!, tvShowName: String!, tvShowPoster: String, tvShowDetails: String!, tvShowRating: Float): User
+        saveGame(gameId: ID!, gameName: String!, gamePoster: String, gameRating: Float): User
         removeMovie(movieId: ID!): User
         removeTvShow(tvShowId: ID!): User
         removeGame(gameId: ID!): User

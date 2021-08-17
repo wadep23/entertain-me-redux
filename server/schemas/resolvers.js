@@ -99,7 +99,7 @@ const resolvers = {
         },
         trailer: async (parent, { mediaTitle }) => {
             const url = ("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="
-            + (mediaTitle + "trailer") + "&key=" + trailerKey);
+            + mediaTitle + "&key=" + trailerKey);
             const response = await fetch(url);
             const data = await response.json();
             const videoData = {

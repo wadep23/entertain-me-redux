@@ -51,12 +51,6 @@ const AppNavbar = () => {
       <header>
         <img src={logoImg} alt="logo"></img>
         <h4>Your go-to site when you just don't know what to watch!</h4>
-        {/* <button onClick={clickHandler}>Movie Query Test</button> */}
-        {/* <div className="video-box">
-          <iframe title="youtube" id="video" className="video">
-            Hello
-          </iframe>
-        </div> */}
       </header>
     </div>
   );
