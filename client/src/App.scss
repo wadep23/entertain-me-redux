@@ -72,6 +72,23 @@ Form {
   background-color: black;
 }
 
+.feed-header {
+  text-align: center;
+}
+
+.post-box {
+  background-color: black;
+  padding-bottom: 3px;
+  padding-top: 10px;
+  padding-left: 12px;
+  border-bottom: 2px solid $text-color;
+}
+
+.name-link {
+  text-decoration: none;
+  color: $text-color;
+}
+
 li {
   list-style: none;
   padding-bottom: 1%;

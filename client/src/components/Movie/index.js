@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import {Button, Card, Row, Container, Col} from 'react-bootstrap';
 import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
 import { SAVE_MOVIE, ADD_POST } from '../../utils/mutations';
@@ -13,17 +12,12 @@ const SearchMedia = () => {
     const [trailerModalTitle, setTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
-    // const { username: userParam } = useParams();
-
-    // const { userLoading, userData } = useQuery(QUERY_SELF, {
-    //     variables: { username: userParam }
-    // });
 
     const [getGenre, { loading, data }] = useLazyQuery(MOVIE_API_QUERY);
     
     const [saveMovie] = useMutation(SAVE_MOVIE);
-    // const [createPost] = useMutation(ADD_POST);
-
+    const [createPost] = useMutation(ADD_POST);
+    
     useEffect(() => {
         if (data) {
             let movieData = data.movie.map((movies) => ({
@@ -36,7 +30,7 @@ const SearchMedia = () => {
             setSearchedMedia(movieData) 
         }
     }, [data, imgLink]);
-    // console.log(userData)
+
     if (loading) {
         return <div>Loading...</div>
     }
@@ -55,11 +49,11 @@ const SearchMedia = () => {
                 }
             })
 
-            // await createPost({
-            //     variables: {
-            //       postText: `${userData.user}`  
-            //     }
-            // })
+            await createPost({
+                variables: {
+                  postText: ` saved ${movieToSave.movieName} to their favorite movies!`  
+                }
+            })
 
             setSavedMedia([...savedMedia, movieToSave.movieId])
             } catch (err) {

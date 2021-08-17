@@ -1,11 +1,17 @@
+import { Redirect } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import gamerImgOne from "../assets/images/gamer-pic-1.jpg";
 import movieImgOne from "../assets/images/movie-pic-1.jpg";
 import tvPicOne from "../assets/images/tv-pic-1.jpg";
-import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
+import auth from '../utils/auth';
 
 function Login() {
+
+  if (auth.loggedIn()) {
+    return <Redirect to ="/home" />
+  }
+  
   
   return (
     <div>

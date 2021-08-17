@@ -1,9 +1,13 @@
 import React from 'react';
-import Auth from '../utils/auth';
-import SearchMedia from '../components/Media'
+import { Redirect } from 'react-router';
+import auth from '../utils/auth';
+import SearchMedia from '../components/Movie'
 
 const Movie = () => {
-
+  if (!auth.loggedIn()) {
+    return <Redirect to ="/" />
+  }
+  
   return (
     <main>
       <div>
