@@ -8,7 +8,6 @@ import {
 import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
 import { Container, CardColumns, Card, Button } from "react-bootstrap";
-import { removeMediaId } from "../utils/saveMedia";
 import Auth from '../utils/auth';
 
 const Profile = () => {
@@ -77,7 +76,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(movieId);
+      
     }
     if (tvShowId) {
       await deleteContent({
@@ -96,7 +95,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(tvShowId);
+      ;
     }
     if (gameId) {
       await deleteContent({
@@ -115,7 +114,7 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(gameId);
+      
     }
   };
 

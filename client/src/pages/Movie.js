@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../utils/auth';
-import SearchMedia from '../components/Media'
+import SearchMedia from '../components/Movie'
 
 const Movie = () => {
 

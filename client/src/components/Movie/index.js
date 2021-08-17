@@ -14,16 +14,13 @@ const SearchMedia = () => {
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
     // const { username: userParam } = useParams();
-
-    // const { userLoading, userData } = useQuery(QUERY_SELF, {
-    //     variables: { username: userParam }
-    // });
+    const { data: userData } = useQuery(QUERY_SELF);
 
     const [getGenre, { loading, data }] = useLazyQuery(MOVIE_API_QUERY);
     
     const [saveMovie] = useMutation(SAVE_MOVIE);
-    // const [createPost] = useMutation(ADD_POST);
-
+    const [createPost] = useMutation(ADD_POST);
+    console.log(userData)
     useEffect(() => {
         if (data) {
             let movieData = data.movie.map((movies) => ({
@@ -36,7 +33,7 @@ const SearchMedia = () => {
             setSearchedMedia(movieData) 
         }
     }, [data, imgLink]);
-    // console.log(userData)
+
     if (loading) {
         return <div>Loading...</div>
     }
@@ -55,11 +52,11 @@ const SearchMedia = () => {
                 }
             })
 
-            // await createPost({
-            //     variables: {
-            //       postText: `${userData.user}`  
-            //     }
-            // })
+            await createPost({
+                variables: {
+                  postText: `${userData.me.username} saved ${movieToSave.movieName} to their favorite movies!`  
+                }
+            })
 
             setSavedMedia([...savedMedia, movieToSave.movieId])
             } catch (err) {
