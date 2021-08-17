@@ -10,15 +10,25 @@ import UserModal from "../Modal";
 
 const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Entertain-Me</Navbar.Brand>
+          {/* if user is logged in, no sign-in modal */}
+          {Auth.loggedIn() ? (
+            <Navbar.Brand href="#home" as={Link} to={"/"}
+              >
+                Entertain Me!
+            </Navbar.Brand>
+          ) : (
+            <Navbar.Brand href="#home" as={Link} to={'/'}
+            onClick={() => setShowModal(true)}
+            >Entertain Me!</Navbar.Brand>
+          )}
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link onClick={() => setShowModal(true)}>Home</Nav.Link>
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#movies" as={Link} to="/movie">Movies</NavDropdown.Item>
                 <NavDropdown.Item href="#television" as={Link} to="/tv">TV</NavDropdown.Item>
@@ -33,7 +43,7 @@ const AppNavbar = () => {
               {/* if user is logged in show saved media and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/profile">
+                  <Nav.Link as={Link} to="/profile/:username?">
                     See Your Media
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>

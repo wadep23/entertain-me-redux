@@ -9,6 +9,32 @@ header {
   border-bottom: 2px solid goldenrod;
   box-shadow: inset 5px -5px 20px black;
 }
+
+Form {
+  background-color: $background;
+}
+
+.primaryModal {
+  background-color: $background;
+  color: $text-color;
+}
+
+.modal-title {
+  background-color: $background;
+}
+
+.modal-header {
+  background-color: $background;
+}
+
+.modal-body {
+  background-color: $background;
+}
+
+.modal-content {
+  color: $text-color;
+}
+
 .login-page {
   text-align: right;
 }

@@ -43,7 +43,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/tv" component={Tv} />
             <Route exact path="/movie" component={Movie} />
             <Route exact path="/game" component={Game} />
