@@ -4,10 +4,6 @@ import movieImgOne from "../assets/images/movie-pic-1.jpg";
 import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
-// import { FaPlaystation } from "react-icons/fa";
-
-
-
 
 
 

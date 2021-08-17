@@ -43,13 +43,15 @@ Form {
   text-align: center;
 }
 
-.carousel-container {
-  margin-left: 31%;
-}
+// .carousel-container {
+//   margin-left: 31%;
+// }
 
-.carousel {
-  width: 900px;
-  height: 600px;
+@media (max-width: 900px) {
+  .carousel {
+    width:auto;
+    height:auto;
+  }
 }
 
 /* dimensions for trailer videos */
