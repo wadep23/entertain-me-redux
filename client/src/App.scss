@@ -43,9 +43,13 @@ Form {
   text-align: center;
 }
 
-// .carousel-container {
-//   margin-left: 31%;
-// }
+.carousel-container h3 {
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
 
 @media (max-width: 900px) {
   .carousel {
@@ -80,7 +84,7 @@ li {
 }
 
 h3 {
-  color: goldenrod;
+  color: rgb(240, 193, 76);
 }
 
 main {
