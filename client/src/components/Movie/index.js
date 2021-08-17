@@ -5,6 +5,10 @@ import { SAVE_MOVIE, ADD_POST } from '../../utils/mutations';
 import { MOVIE_API_QUERY, QUERY_SELF }from '../../utils/queries';
 import TrailerModal from '../TrailerModal';
 import Auth from '../../utils/auth';
+import { FaLaughSquint, FaHeart, FaSadCry, FaRegPlayCircle } from "react-icons/fa";
+import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass } from "react-icons/gi";
+import { RiAliensFill } from "react-icons/ri";
+
 
 const SearchMedia = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
@@ -67,39 +71,39 @@ const SearchMedia = () => {
                 <Row>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 27 }})}}
-                        >Horror</button>
+                        ><GiGhost /> Horror</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 28 }})}} 
-                        >Action</button>
+                        ><GiPistolGun /> Action</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 12 }})}}
-                        >Adventure</button>
+                        ><GiEarthAmerica /> Adventure</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10749 }})}}
-                         >Romance</button>
+                        ><FaHeart /> Romance</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 878 }})}}
-                         >Sci-Fi</button>
+                        ><RiAliensFill /> Sci-Fi</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
-                         >Drama</button>
+                        ><FaSadCry /> Drama</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 14 }})}}
-                         >Fantasy</button>
+                        ><GiUnicorn /> Fantasy</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 9648 }})}}
-                         >Mystery</button>
+                        ><GiMagnifyingGlass /> Mystery</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 35 }})}}
-                         >Comedy</button>
+                         ><FaLaughSquint /> Comedy</button>
                     </Col>
                 </Row>
                 <Row>

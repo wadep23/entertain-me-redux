@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import auth from '../utils/auth';
 import SearchMedia from '../components/Movie'
+import { GiFilmProjector} from "react-icons/gi";
 
 const Movie = () => {
   if (!auth.loggedIn()) {
@@ -12,8 +13,8 @@ const Movie = () => {
     <main>
       <div>
         <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
-            So, you need a movie to watch? Click on a genre below and watch the magic happen!
+          <h2 className="bg-dark text-secondary p-3 display-inline-block text-center">
+            <GiFilmProjector /> Choose a movie genre: 
           </h2>
           <SearchMedia />
         </div>

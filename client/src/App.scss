@@ -43,13 +43,19 @@ Form {
   text-align: center;
 }
 
-.carousel-container {
-  margin-left: 31%;
+.carousel-container h3 {
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
-.carousel {
-  width: 900px;
-  height: 600px;
+@media (max-width: 900px) {
+  .carousel {
+    width:auto;
+    height:auto;
+  }
 }
 
 /* dimensions for trailer videos */
@@ -95,7 +101,7 @@ li {
 }
 
 h3 {
-  color: goldenrod;
+  color: rgb(240, 193, 76);
 }
 
 main {
@@ -123,11 +129,21 @@ button:hover {
   border: 3px solid rgb(112, 7, 7);
 }
 
-footer {
-  text-align: center;
-  height: 50px;
-  justify-content: center;
-  border-top: 2px solid goldenrod;
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #212529;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $text-color;
+  z-index: 10;
+}
+
+.logo {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .card-text {

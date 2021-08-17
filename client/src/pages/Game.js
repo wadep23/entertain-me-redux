@@ -4,12 +4,6 @@ import auth from '../utils/auth';
 
 
 
-
-
-
-
-
-
 const Game = props => {
   if (!auth.loggedIn()) {
     return <Redirect to ="/" />
