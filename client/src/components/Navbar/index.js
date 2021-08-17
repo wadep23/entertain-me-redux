@@ -7,9 +7,17 @@ import logoImg from "../../assets/images/entertain-me-logo.png";
 
 import Auth from "../../utils/auth";
 import UserModal from "../Modal";
+import { QUERY_SELF } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
+  const { data } = useQuery(QUERY_SELF);
+  let username;
+
+  if (data) {
+    username = data.me.username;
+  }
 
   return (
     <div>
@@ -17,21 +25,29 @@ const AppNavbar = () => {
         <Container>
           {/* if user is logged in, no sign-in modal */}
           {Auth.loggedIn() ? (
-            <Navbar.Brand href="#home" as={Link} to={"/"}
-              >
-                Entertain Me!
+            <Navbar.Brand href="#home" as={Link} to={"/"}>
+              Entertain Me!
             </Navbar.Brand>
           ) : (
-            <Navbar.Brand href="#home" as={Link} to={'/'}
-            onClick={() => setShowModal(true)}
-            >Entertain Me!</Navbar.Brand>
+            <Navbar.Brand
+              href="#home"
+              as={Link}
+              to={"/"}
+              onClick={() => setShowModal(true)}
+            >
+              Entertain Me!
+            </Navbar.Brand>
           )}
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#movies" as={Link} to="/movie">Movies</NavDropdown.Item>
-                <NavDropdown.Item href="#television" as={Link} to="/tv">TV</NavDropdown.Item>
+                <NavDropdown.Item href="#movies" as={Link} to="/movie">
+                  Movies
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#television" as={Link} to="/tv">
+                  TV
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#videogames" as={Link} to="/game">
                   Video Games
                 </NavDropdown.Item>
@@ -43,7 +59,7 @@ const AppNavbar = () => {
               {/* if user is logged in show saved media and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/profile/:username?">
+                  <Nav.Link as={Link} to={`/profile/${username}?`}>
                     See Your Media
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>

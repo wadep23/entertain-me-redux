@@ -3,18 +3,14 @@ import decode from "jwt-decode";
 class AuthData {
   // Grab data saved in token
   getUserData() {
-    // Checks to see if there is a saved token and if it is valid
-    const token = this.retrieveToken();
-
-    // Using type coersion to check if token is not undefined and is not expired
-    return !!token && !this.isTokenExpired(token);
+    return decode(this.retrieveToken());
   }
 
   // check if user's logged in
   loggedIn() {
     // Checks if there is a saved token and it's still valid
     const token = this.retrieveToken();
-    return !!token && !this.isTokenExpired(token); 
+    return !!token && !this.isTokenExpired(token);
   }
 
   // check if token is expired

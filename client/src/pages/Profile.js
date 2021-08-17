@@ -8,8 +8,7 @@ import {
 import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
 import { Container, CardColumns, Card, Button } from "react-bootstrap";
-import { removeMediaId } from "../utils/saveMedia";
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -77,7 +76,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(movieId);
     }
     if (tvShowId) {
       await deleteContent({
@@ -96,7 +94,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(tvShowId);
     }
     if (gameId) {
       await deleteContent({
@@ -115,7 +112,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(gameId);
     }
   };
 
@@ -137,7 +133,7 @@ const Profile = () => {
     <>
       <div fluid className="text-light bg-dark">
         <Container>
-          <h2>{`${userData.username}'s`} Profile</h2>
+          <h2>{userParam ? `${userData.username}'s` : `your`} Profile</h2>
           {userParam && (
             <button className="btn" onClick={handleClick}>
               Add Friend
