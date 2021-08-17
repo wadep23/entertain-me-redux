@@ -95,30 +95,30 @@ const SearchMedia = () => {
                         <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
                          ><FaSadCry /> Drama</button>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10751 }})}}
                          ><GiFamilyHouse /> Family</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10762 }})}}
                          ><FaChild /> Kids</button>
-                    </Col>
+                    </Col> */}
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 9648 }})}}
                          ><GiMagnifyingGlass /> Mystery</button>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10763 }})}}
                          ><GiNewspaper /> News</button>
-                    </Col>
+                    </Col> */}
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10764 }})}}
                          ><BsFillPeopleFill /> Reality</button>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10765 }})}}
                          ><GiLightSabers /> Sci-Fi & Fantasy</button>
-                    </Col>
+                    </Col> */}
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10766 }})}}
                          ><GiSoap /> Soap</button>
