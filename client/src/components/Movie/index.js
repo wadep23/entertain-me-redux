@@ -63,7 +63,7 @@ const SearchMedia = () => {
 
     return (
         <div class="return-data">
-            <Container>
+            <Container fluid>
                 <Row>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 27 }})}}
@@ -107,7 +107,7 @@ const SearchMedia = () => {
                         return (
                             <Col sm={3}>
                                 <Card key={movies.movieId} style={{ width: '18rem' }}>
-                                    <Card.Img src={movies.moviePoster} alt={`The poster for ${movies.movieName}`} variant="top" />
+                                    <Card.Img src={movies.moviePoster} alt={`The poster for ${movies.movieName}`} variant="top" style={{ height: '20rem' }}/>
                                     <Card.Body className="card-body">
                                         <Card.Title>{movies.movieName}</Card.Title>
                                         <Card.Text>{movies.movieDetails}</Card.Text>
