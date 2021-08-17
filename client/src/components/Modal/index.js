@@ -3,7 +3,6 @@ import SignUpForm from "../SignUpForm";
 import LoginForm from "../LoginForm";
 
 const UserModal = (props) => {
-  // const [showModal, setShowModal] = useState(false);
   const { showModal, setShowModal } = props;
 
   return (
