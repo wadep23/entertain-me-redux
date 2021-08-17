@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 import { QUERY_POSTS } from '../../utils/queries';
 import auth from '../../utils/auth';
 
-const FeedList = () => {
+const FeedList = (props) => {
+    
     const { loading, data: postData } = useQuery(QUERY_POSTS);
+
+    if (!auth.loggedIn()) {
+        return <Redirect to ="/" />
+    }
     
     if (loading) {
         return <h1>Loading data...</h1>

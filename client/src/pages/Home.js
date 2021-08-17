@@ -1,8 +1,13 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import FeedList from '../components/FeedPage';
 import { Container, Row } from 'react-bootstrap';
+import auth from '../utils/auth';
 
 const HomePage = () => {
+    if (!auth.loggedIn()) {
+        return <Redirect to ="/" />
+    }
 
     return (
         <main>

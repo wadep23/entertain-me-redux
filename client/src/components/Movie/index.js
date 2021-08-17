@@ -12,7 +12,6 @@ const SearchMedia = () => {
     const [trailerModalTitle, setTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
-    const { data: userData } = useQuery(QUERY_SELF);
 
     const [getGenre, { loading, data }] = useLazyQuery(MOVIE_API_QUERY);
     

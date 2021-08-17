@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import Auth from '../utils/auth';
+import auth from '../utils/auth';
 
 
 
@@ -11,7 +11,9 @@ import Auth from '../utils/auth';
 
 
 const Tv = props => {
-  
+  if (!auth.loggedIn()) {
+    return <Redirect to ="/" />
+  } 
 
   return (
     <div>
