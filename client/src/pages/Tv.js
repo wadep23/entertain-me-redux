@@ -2,6 +2,9 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import auth from '../utils/auth';
 import SearchMedia from '../components/TV'
+import { GiTvRemote } from "react-icons/gi";
+
+
 
 const Tv = () => {
   if (!auth.loggedIn()) {
@@ -12,13 +15,14 @@ const Tv = () => {
     <main>
       <div>
         <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
-            So, you need a show to watch? Click on a genre below and watch the magic happen!
+          <h2 className="bg-dark text-secondary p-3 display-inline-block text-center">
+            <GiTvRemote /> Select a TV genre: 
           </h2>
           <SearchMedia />
         </div>
       </div>
     </main> 
-)};
+)
+};
 
 export default Tv;
