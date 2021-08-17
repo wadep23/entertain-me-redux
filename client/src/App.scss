@@ -9,6 +9,32 @@ header {
   border-bottom: 2px solid goldenrod;
   box-shadow: inset 5px -5px 20px black;
 }
+
+Form {
+  background-color: $background;
+}
+
+.primaryModal {
+  background-color: $background;
+  color: $text-color;
+}
+
+.modal-title {
+  background-color: $background;
+}
+
+.modal-header {
+  background-color: $background;
+}
+
+.modal-body {
+  background-color: $background;
+}
+
+.modal-content {
+  color: $text-color;
+}
+
 .login-page {
   text-align: right;
 }
@@ -71,14 +97,20 @@ button:hover {
   border: 3px solid rgb(112, 7, 7);
 }
 
-footer {
-  text-align: center;
-  height: 50px;
-  justify-content: center;
-  border-top: 2px solid goldenrod;
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #212529;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $text-color;
+  z-index: 10;
 }
 
 .logo {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+

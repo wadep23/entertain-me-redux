@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import SignUpForm from "./components/SignUpForm";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Footer from './components/Footer';
 import Profile from "./pages/Profile";
 import Game from "./pages/Game";
 import Movie from "./pages/Movie";
@@ -47,12 +48,13 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/tv" component={Tv} />
             <Route exact path="/movie" component={Movie} />
             <Route exact path="/game" component={Game} />
           </Switch>
         </div>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

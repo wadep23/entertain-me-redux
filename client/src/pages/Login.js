@@ -6,7 +6,7 @@ import logoImg from "../assets/images/entertain-me-logo.png";
 import friendsImg from "../assets/images/friends-1.jpg";
 import { Form, Button, Alert } from 'react-bootstrap';
 import { gameQuery, movieQuery, testVideo, tvQuery } from "../utils/API";
-// import { FaPlaystation } from "react-icons/fa";
+import { FaPlaystation } from "react-icons/fa";
 
 
 const movie_key = process.env.REACT_APP_GAME_API_KEY
