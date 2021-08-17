@@ -55,7 +55,7 @@ Form {
 /* dimensions for trailer videos */
 .video-box {
   position: relative;
-  padding-bottom: 20%;
+  padding-bottom: 50%;
   padding-top: 10px;
   height: 0;
   overflow: hidden;
@@ -63,10 +63,19 @@ Form {
 
 .video-box iframe {
   position: absolute;
-  width: 20%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
 }
 /* end of dimensions for trailer videos */
+
+.card-body {
+  background-color: black;
+}
+
+li {
+  list-style: none;
+  padding-bottom: 1%;
+}
 
 h3 {
   color: goldenrod;

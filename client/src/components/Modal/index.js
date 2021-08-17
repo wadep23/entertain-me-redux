@@ -1,11 +1,11 @@
 import { Nav, Modal, Tab } from "react-bootstrap";
-// import { useState } from "react";
 import SignUpForm from "../SignUpForm";
 import LoginForm from "../LoginForm";
 
 const UserModal = (props) => {
   // const [showModal, setShowModal] = useState(false);
   const { showModal, setShowModal } = props;
+
   return (
     <>
       <Modal

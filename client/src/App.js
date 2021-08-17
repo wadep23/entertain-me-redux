@@ -9,16 +9,12 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import SignUpForm from "./components/SignUpForm";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import Game from "./pages/Game";
 import Movie from "./pages/Movie";
 import Tv from "./pages/Tv";
-
-import { MOVIE_API_QUERY } from "./utils/queries";
-require("dotenv").config();
 
 const httpLink = createHttpLink({
   uri: "/graphql",
