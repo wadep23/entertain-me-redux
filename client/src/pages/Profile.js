@@ -7,8 +7,15 @@ import {
 } from "../utils/mutations";
 import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
-import { Container, CardColumns, Card, Button, Row, Col } from "react-bootstrap";
-import Auth from '../utils/auth';
+import {
+  Container,
+  CardColumns,
+  Card,
+  Button,
+  Row,
+  Col,
+} from "react-bootstrap";
+import Auth from "../utils/auth";
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -26,7 +33,7 @@ const Profile = () => {
   const userData = data?.me || data?.user || {};
 
   if (!Auth.loggedIn()) {
-    return <Redirect to ="/" />
+    return <Redirect to="/" />;
   }
 
   if (Auth.loggedIn() && Auth.getUserData().username === userParam) {
@@ -80,7 +87,6 @@ const Profile = () => {
           });
         },
       });
-      
     }
     if (tvShowId) {
       await deleteContent({
@@ -99,7 +105,6 @@ const Profile = () => {
           });
         },
       });
-      ;
     }
     if (gameId) {
       await deleteContent({
@@ -118,7 +123,6 @@ const Profile = () => {
           });
         },
       });
-      
     }
   };
 
@@ -144,7 +148,7 @@ const Profile = () => {
             <Col md="4">
               <h2>{`${userData.username}'s`} Profile</h2>
             </Col>
-            <Col sm="auto">            
+            <Col sm="auto">
               {userParam && (
                 <button onClick={handleClick} size="lg">
                   Add Friend

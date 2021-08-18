@@ -11,7 +11,7 @@ import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import Game from "./pages/Game";
 import Movie from "./pages/Movie";
