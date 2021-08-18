@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/entertain-me-logo.png";
+import { GiLaurels } from 'react-icons/gi'
 // import LoginForm from "../LoginForm";
 // import SignUpForm from "../SignUpForm";
 
@@ -81,7 +82,9 @@ const AppNavbar = () => {
       </Navbar>
       <UserModal showModal={showModal} setShowModal={setShowModal} />
       <header>
+        <GiLaurels class="laurels"/>
         <img src={logoImg} alt="logo"></img>
+        <GiLaurels class="laurels"/>        
         <h5>Your go-to site when you don't know what to watch!</h5>
       </header>
     </div>

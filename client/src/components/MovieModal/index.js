@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Modal, Button } from 'react-bootstrap';
 import { useLazyQuery } from "@apollo/client";
 import { TRAILER_API_QUERY } from "../../utils/queries";
@@ -17,6 +17,8 @@ const MovieModal = (props) => {
       return <div>Loading...</div>
     }
   
+    console.log(data);
+
     return (
       <>
         <Modal
