@@ -3,6 +3,8 @@ import { Redirect } from 'react-router';
 import auth from '../utils/auth';
 import SearchMedia from '../components/Game'
 import { IoGameController } from "react-icons/io5";
+=======
+import SearchGames from '../components/Game'
 
 const Game = () => {
   if (!auth.loggedIn()) {
@@ -16,7 +18,7 @@ const Game = () => {
           <h2 className="bg-dark text-secondary p-3 display-inline-block text-center">
             <IoGameController /> Select Platform & Game genre:
           </h2>
-          <SearchMedia />
+          <SearchGames />
         </div>
       </div>
     </main>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import auth from '../utils/auth';
-import SearchMedia from '../components/TV'
+import SearchShows from '../components/TV'
 import { GiTvRemote } from "react-icons/gi";
 
 
@@ -18,7 +18,7 @@ const Tv = () => {
           <h2 className="bg-dark text-secondary p-3 display-inline-block text-center">
             <GiTvRemote /> Select a TV genre: 
           </h2>
-          <SearchMedia />
+          <SearchShows />
         </div>
       </div>
     </main> 

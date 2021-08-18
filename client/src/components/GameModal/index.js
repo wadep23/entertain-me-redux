@@ -3,8 +3,8 @@ import { Modal, Button } from 'react-bootstrap';
 import { useLazyQuery } from "@apollo/client";
 import { TRAILER_API_QUERY } from "../../utils/queries";
 
-const TrailerModal = (props) => {
-    const { showTrailerModal, setShowTrailerModal, trailerModalTitle } = props;
+const GameModal = (props) => {
+    const { showGameTrailerModal, setShowGameTrailerModal, gameTrailerModalTitle } = props;
     const [getTrailer, { loading, data }] = useLazyQuery(TRAILER_API_QUERY);
     
     useEffect(() => {
@@ -16,19 +16,17 @@ const TrailerModal = (props) => {
     if (loading) {
       return <div>Loading...</div>
     }
-
-    console.log(data)
   
     return (
       <>
         <Modal
           size="lg"
-          show={showTrailerModal}
-          onHide={() => setShowTrailerModal(false)}
+          show={showGameTrailerModal}
+          onHide={() => setShowGameTrailerModal(false)}
           aria-labelledby="trailer-modal"
         >
           <Modal.Header closeButton>
-            <Modal.Title>{trailerModalTitle}</Modal.Title>       
+            <Modal.Title>{gameTrailerModalTitle}</Modal.Title>       
           </Modal.Header>
           <Modal.Body>
             <div className="video-box">
@@ -37,11 +35,11 @@ const TrailerModal = (props) => {
             </div>   
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={() => getTrailer({ variables: { mediaTitle: trailerModalTitle }})}>Show Me The Trailer!</Button>     
+            <Button onClick={() => getTrailer({ variables: { mediaTitle: gameTrailerModalTitle }})}>Show Me The Trailer!</Button>     
           </Modal.Footer>         
           </Modal>
       </>                           
     )                               
 };
 
-export default TrailerModal;
+export default GameModal;
