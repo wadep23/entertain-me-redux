@@ -16,8 +16,6 @@ const MovieModal = (props) => {
     if (loading) {
       return <div>Loading...</div>
     }
-
-    console.log(data)
   
     return (
       <>
