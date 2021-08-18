@@ -134,7 +134,6 @@ export const QUERY_USER = gql`
         gameName
         gamePoster
         gameRating
-        gameDetails
       }
       createdPosts {
         username

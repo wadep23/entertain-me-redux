@@ -15,10 +15,12 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import FriendList from "../components/FriendsList";
 import Auth from "../utils/auth";
 
 const Profile = () => {
   const { username: userParam } = useParams();
+  
 
   const [addFriend] = useMutation(ADD_FRIEND);
   const [deleteContent] = useMutation(
@@ -26,20 +28,21 @@ const Profile = () => {
     REMOVE_TV_SHOW,
     REMOVE_GAME
   );
-  const { loading, data } = useQuery(userParam ? QUERY_SELF : QUERY_USER, {
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_SELF , {
     variables: { username: userParam },
   });
 
   const userData = data?.me || data?.user || {};
 
+  if (Auth.loggedIn() && Auth.getUserData().data.username === userParam) {
+    return <Redirect to="/profile" />;
+  }
+
   if (!Auth.loggedIn()) {
     return <Redirect to="/" />;
   }
 
-  if (Auth.loggedIn() && Auth.getUserData().username === userParam) {
-    return <Redirect to="/profile/" />;
-  }
-
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -55,9 +58,6 @@ const Profile = () => {
   // change the passed in value to something that can be unique to the content type ie. passed in value of mediaType and compare to favorite media array on user model
   const handleDeleteContent = async () => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    // const { data } = useQuery(userParam ? QUERY_SELF : QUERY_USER, {
-    //   variables: { username: userParam },
-    // });
 
     const movieId =
       data?.me.favoriteMovies.movieId || data?.user.favoriteMovies.movieId;
@@ -146,7 +146,7 @@ const Profile = () => {
         <Container>
           <Row>
             <Col md="4">
-              <h2>{`${userData.username}'s`} Profile</h2>
+              <h2>Welcome to {userParam ? `${userData.username}'s` : 'your'} Profile!</h2>
             </Col>
             <Col sm="auto">
               {userParam && (

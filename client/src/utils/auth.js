@@ -35,7 +35,7 @@ class AuthData {
   // Set token to localStorage
   login(userToken) {
     localStorage.setItem("user_token", userToken);
-    window.location.assign("/");
+    window.location.assign("/home");
   }
 
   // Clears token and logouts

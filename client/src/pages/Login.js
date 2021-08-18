@@ -10,11 +10,6 @@ import auth from '../utils/auth';
 
 function Login() {
 
-  if (auth.loggedIn()) {
-    return <Redirect to ="/home" />
-  }
-  
-  
   return (
     <div>
       <main>
