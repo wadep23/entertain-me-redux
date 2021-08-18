@@ -61,7 +61,7 @@ const AppNavbar = () => {
                   Video Games
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#vibe">Today's Vibe</NavDropdown.Item>
+                <NavDropdown.Item href="#feed" as={Link} to="/home">Feed</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>

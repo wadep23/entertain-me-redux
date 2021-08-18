@@ -5,6 +5,11 @@ import { SAVE_GAME, ADD_POST } from '../../utils/mutations';
 import { GAME_API_QUERY }from '../../utils/queries';
 import GameModal from '../GameModal';
 import Auth from '../../utils/auth';
+import { GiPunchBlast, GiAudioCassette, GiAxeSword, GiChessRook, GiBrain, GiCard2Hearts, GiFamilyHouse, GiVrHeadset, GiSteeringWheel, GiHighKick, GiFloatingPlatforms } from "react-icons/gi";
+import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaChessBoard, FaHeadset, FaPlaystation, FaXbox, FaMouse } from "react-icons/fa";
+import { BiCool, BiGame } from "react-icons/bi";
+import { IoAmericanFootballSharp } from "react-icons/io5";
+import { SiNintendoswitch } from "react-icons/si";
 
 const SearchGames = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
@@ -64,80 +69,102 @@ const SearchGames = () => {
             <Container>
                 <Row fluid>
                     <Col>
+                        <button onClick={() => { getGenre({ variables: { } }) }}
+                        ><FaPlaystation />  Playstation</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { } }) }}
+                        ><FaXbox />  XBOX </button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { } }) }}
+                        ><FaMouse />  PC</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { } }) }}
+                        ><SiNintendoswitch />  Nintendo</button>
+                    </Col>
+                </Row>
+            </Container>
+            <br />
+            <br />
+            <Container>
+                <Row fluid>
+                    <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "action" }})}}
-                        >Action</button>
+                        ><GiPunchBlast /> Action</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "indie"}})}}
-                        >Indie</button>
+                        ><GiAudioCassette/> Indie</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "adventure" }})}}
-                         >Adventure</button>
+                         ><GiAxeSword /> Adventure</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "role-playing-games-rpg" }})}}
-                         >RPG</button>
+                         ><FaDiceD20 /> RPG</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "strategy" }})}}
-                         >Strategy</button>
+                         ><GiChessRook /> Strategy</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "shooter" }})}}
-                         >Shooter</button>
+                         ><FaCrosshairs /> FPS/Shooter</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "casual" }})}}
-                         >Casual</button>
+                         ><BiCool /> Casual</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "simulation" }})}}
-                         >Simulation</button>
+                         ><GiVrHeadset /> Simulation</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "puzzle" }})}}
-                         >Puzzle</button>
+                         ><FaPuzzlePiece /> Puzzle</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "arcade" }})}}
-                         >Arcade</button>
+                         ><BiGame/> Arcade</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "platformer" }})}}
-                         >Platformer</button>
+                         ><GiFloatingPlatforms /> Platformer</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "racing" }})}}
-                         >Racing</button>
+                         ><GiSteeringWheel /> Racing</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "massively-multiplayer" }})}}
-                         >MMO</button>
+                         ><FaHeadset /> MMO</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "sports" }})}}
-                         >Sports</button>
+                         ><IoAmericanFootballSharp /> Sports</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "fighting" }})}}
-                         >Fighting</button>
+                         ><GiHighKick /> Fighting</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "family" }})}}
-                         >Family</button>
+                         ><GiFamilyHouse /> Family</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "board-games" }})}}
-                         >Board Games</button>
+                         ><FaChessBoard/> Board Games</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "educational" }})}}
-                         >Education</button>
+                         ><GiBrain /> Education</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: "card" }})}}
-                         >Card</button>
+                         ><GiCard2Hearts /> Card</button>
                     </Col>
                 </Row>
                 <Row>
