@@ -17,6 +17,7 @@ import Game from "./pages/Game";
 import Movie from "./pages/Movie";
 import Tv from "./pages/Tv";
 import Home from "./pages/Home";
+import NoPage from "./pages/NoPage";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/tv" component={Tv} />
             <Route exact path="/movie" component={Movie} />
             <Route exact path="/game" component={Game} />
+            <Route component={NoPage} />
           </Switch>
         </div>
         <Footer />

@@ -43,7 +43,7 @@ const resolvers = {
                 .populate('createdPosts')
         },
         posts: async () => {
-            return Post.find()
+            return Post.find().sort({ createdAt: -1 })
                 .select('-__v')
         },
         movie: async (parent, { genre }) => {
@@ -76,7 +76,7 @@ const resolvers = {
             const data = await response.json();
             let tvDataReturn = [];
 
-            // For loop to generate all results from the first page, 20
+            // For loop to generate all results from the page, 20
             for(let i = 0; i < data.results.length; i++) {
                 tvDataReturn.push(data.results[i])
             };
@@ -90,7 +90,7 @@ const resolvers = {
             const data = await response.json();
             let gameDataReturn = [];
 
-            // For loop to generate all results from the first page, 20
+            // For loop to generate all results from the page, 20
             for(let i = 0; i < data.results.length; i++) {
                 gameDataReturn.push(data.results[i])
             };
@@ -232,7 +232,7 @@ const resolvers = {
             if (context.user) {
                 const addFavGame = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    {$addToSet: { favoriteGames: { gameId, gameName, gamePoster, gameRating } } },
+                    { $addToSet: { favoriteGames: { gameId, gameName, gamePoster, gameRating } } },
                     { new: true }
                 )
 

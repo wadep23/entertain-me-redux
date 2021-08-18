@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, Row, Container, Col } from 'react-bootstrap';
-import { useMutation, useLazyQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_GAME, ADD_POST } from '../../utils/mutations';
 import { GAME_API_QUERY }from '../../utils/queries';
 import GameModal from '../GameModal';
 import Auth from '../../utils/auth';
-import { GiPunchBlast, GiAudioCassette, GiAxeSword, GiChessRook, GiBrain, GiCard2Hearts, GiFamilyHouse, GiVrHeadset, GiSteeringWheel, GiHighKick, GiFloatingPlatforms } from "react-icons/gi";
-import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaChessBoard, FaHeadset, FaPlaystation, FaXbox, FaMouse } from "react-icons/fa";
-import { BiCool, BiGame } from "react-icons/bi";
-import { IoAmericanFootballSharp } from "react-icons/io5";
-import { SiNintendoswitch } from "react-icons/si";
 
-const SearchGames = () => {
-    let imgLink = "https://image.tmdb.org/t/p/w500";
+const SearchGames = (props) => {
+    const { platformInt, genreString } = props;
     const [showGameTrailerModal, setShowGameTrailerModal] = useState(false);
     const [gameTrailerModalTitle, setGameTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
 
-    const [getGenre, { loading, data }] = useLazyQuery(GAME_API_QUERY);
+    const { loading, data } = useQuery(GAME_API_QUERY, {
+        variables: { genre: genreString, platform: platformInt}
+    });
     
-    const [savegame] = useMutation(SAVE_GAME);
+    const [saveGame] = useMutation(SAVE_GAME);
     const [createPost] = useMutation(ADD_POST);
+
     
     useEffect(() => {
         if (data) {
@@ -29,11 +27,11 @@ const SearchGames = () => {
                 gameId: game.id,
                 gameName: game.name,
                 gameRating: game.rating,
-                gamePoster: imgLink + game.background_image
+                gamePoster: game.background_image
             }));
             setSearchedMedia(gameData) 
         }
-    }, [data, imgLink]);
+    }, [data]);
 
     if (loading) {
         return <div>Loading...</div>
@@ -42,8 +40,9 @@ const SearchGames = () => {
     const handleSaveMedia = async (gameId) => {
         const gameToSave = searchedMedia.find((media) => media.gameId === gameId);
         
+        
         try {
-            await savegame({
+            await saveGame({
                 variables: {
                     gameId: gameToSave.gameId,
                     gameName: gameToSave.gameName,
@@ -67,106 +66,6 @@ const SearchGames = () => {
     return (
         <div class="return-data">
             <Container>
-                <Row fluid>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { } }) }}
-                        ><FaPlaystation />  Playstation</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { } }) }}
-                        ><FaXbox />  XBOX </button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { } }) }}
-                        ><FaMouse />  PC</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { } }) }}
-                        ><SiNintendoswitch />  Nintendo</button>
-                    </Col>
-                </Row>
-            </Container>
-            <br />
-            <br />
-            <Container>
-                <Row fluid>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "action" }})}}
-                        ><GiPunchBlast /> Action</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "indie"}})}}
-                        ><GiAudioCassette/> Indie</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "adventure" }})}}
-                         ><GiAxeSword /> Adventure</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "role-playing-games-rpg" }})}}
-                         ><FaDiceD20 /> RPG</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "strategy" }})}}
-                         ><GiChessRook /> Strategy</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "shooter" }})}}
-                         ><FaCrosshairs /> FPS/Shooter</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "casual" }})}}
-                         ><BiCool /> Casual</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "simulation" }})}}
-                         ><GiVrHeadset /> Simulation</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "puzzle" }})}}
-                         ><FaPuzzlePiece /> Puzzle</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "arcade" }})}}
-                         ><BiGame/> Arcade</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "platformer" }})}}
-                         ><GiFloatingPlatforms /> Platformer</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "racing" }})}}
-                         ><GiSteeringWheel /> Racing</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "massively-multiplayer" }})}}
-                         ><FaHeadset /> MMO</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "sports" }})}}
-                         ><IoAmericanFootballSharp /> Sports</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "fighting" }})}}
-                         ><GiHighKick /> Fighting</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "family" }})}}
-                         ><GiFamilyHouse /> Family</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "board-games" }})}}
-                         ><FaChessBoard/> Board Games</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "educational" }})}}
-                         ><GiBrain /> Education</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: "card" }})}}
-                         ><GiCard2Hearts /> Card</button>
-                    </Col>
-                </Row>
                 <Row>
                     {searchedMedia.map((games) => {
                         return (
