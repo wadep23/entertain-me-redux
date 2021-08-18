@@ -2,7 +2,7 @@ $background: rgb(112, 7, 7);
 $text-color: goldenrod;
 
 header {
-  padding: 5% 1% 1%1%;
+  padding: 6% 1% 1% 1%;
   border-bottom: 2px solid goldenrod;
   text-align: center;
   box-shadow: inset 5px -5px 20px black;
@@ -145,7 +145,6 @@ h5 {
     1px 1px 0 #000;
 }
 
-
 /* dimensions for trailer videos */
 .video-box {
   position: relative;
@@ -219,8 +218,8 @@ button:hover {
 }
 
 .footer {
-  margin-top: 1rem;
-  padding: 0.5rem;
+  // margin-top: 1rem;
+  padding: 0.001rem;
   background-color: #212529;
   font-weight: 1000;
   // position: fixed;
@@ -231,19 +230,22 @@ button:hover {
   z-index: 10;
 }
 
-.footer p h5 {
-  color: white;
+.footer p h6 {
+  color: rgb(255, 255, 255);
   text-align: center;
+  margin-bottom: -1px;
 }
 
 .footer p li {
   color: white;
   text-align: center;
+  padding: 0px;
 }
 
 .footer p {
   color: white;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 .card-text {
