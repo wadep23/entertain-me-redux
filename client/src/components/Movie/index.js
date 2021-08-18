@@ -3,17 +3,17 @@ import {Button, Card, Row, Container, Col} from 'react-bootstrap';
 import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
 import { SAVE_MOVIE, ADD_POST } from '../../utils/mutations';
 import { MOVIE_API_QUERY, QUERY_SELF }from '../../utils/queries';
-import TrailerModal from '../TrailerModal';
+import MovieModal from '../MovieModal';
 import Auth from '../../utils/auth';
 import { FaLaughSquint, FaHeart, FaSadCry, FaHatCowboy, FaMusic } from "react-icons/fa";
 import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass, GiTvRemote, GiSpartanHelmet, GiHandcuffs, GiFamilyHouse, GiAncientColumns  } from "react-icons/gi";
 import { RiAliensFill, RiKnifeBloodLine } from "react-icons/ri";
 import { BiCameraMovie } from "react-icons/bi";
 
-const SearchMedia = () => {
+const SearchMovies = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
-    const [showTrailerModal, setShowTrailerModal] = useState(false);
-    const [trailerModalTitle, setTrailerModalTitle] = useState('');
+    const [showMovieTrailerModal, setShowMovieTrailerModal] = useState(false);
+    const [movieTrailerModalTitle, setMovieTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
 
@@ -66,8 +66,8 @@ const SearchMedia = () => {
     };
 
     return (
-        <div class="return-data">
-            <Container fluid>
+        <div className="return-data">
+            <Container fluid="true">
                 <Row>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 28 }})}} 
@@ -155,8 +155,8 @@ const SearchMedia = () => {
                                         {Auth.loggedIn() && (
                                             <Button variant="primary" onClick={() => {handleSaveMedia(movies.movieId); }}>Save to your favorites!</Button>
                                         )}
-                                        <Button variant="primary" onClick={() => {setShowTrailerModal(true)
-                                         setTrailerModalTitle(movies.movieName + " Movie Trailer"); }}
+                                        <Button variant="primary" onClick={() => {setShowMovieTrailerModal(true)
+                                         setMovieTrailerModalTitle(movies.movieName + " Movie Trailer"); }}
                                         >Watch a trailer!</Button>
                                     </Card.Body>
                                 </Card>
@@ -165,14 +165,14 @@ const SearchMedia = () => {
                     })}  
                 </Row>
             </Container>
-            <TrailerModal
-                showTrailerModal={showTrailerModal}
-                setShowTrailerModal={setShowTrailerModal}
-                trailerModalTitle={trailerModalTitle}
-                setTrailerModalTitle={setTrailerModalTitle}
-            ></TrailerModal>    
+            <MovieModal
+                showMovieTrailerModal={showMovieTrailerModal}
+                setShowMovieTrailerModal={setShowMovieTrailerModal}
+                movieTrailerModalTitle={movieTrailerModalTitle}
+                setMovieTrailerModalTitle={setMovieTrailerModalTitle}
+            ></MovieModal>    
         </div>
     );
 };
 
-export default SearchMedia;
+export default SearchMovies;

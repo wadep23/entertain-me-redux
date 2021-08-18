@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, Row, Container, Col } from 'react-bootstrap';
-import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import { SAVE_GAME, ADD_POST } from '../../utils/mutations';
-import { GAME_API_QUERY, QUERY_SELF }from '../../utils/queries';
-import TrailerModal from '../TrailerModal';
+import { GAME_API_QUERY }from '../../utils/queries';
+import GameModal from '../GameModal';
 import Auth from '../../utils/auth';
 import { GiPunchBlast, GiAudioCassette, GiAxeSword, GiChessRook, GiBrain, GiCard2Hearts, GiFamilyHouse, GiVrHeadset, GiSteeringWheel, GiHighKick, GiFloatingPlatforms } from "react-icons/gi";
 import { FaDiceD20, FaCrosshairs, FaPuzzlePiece, FaChessBoard, FaHeadset, FaPlaystation, FaXbox, FaMouse } from "react-icons/fa";
@@ -11,11 +11,10 @@ import { BiCool, BiGame } from "react-icons/bi";
 import { IoAmericanFootballSharp } from "react-icons/io5";
 import { SiNintendoswitch } from "react-icons/si";
 
-// will need to change this to match new API
-const SearchMedia = () => {
+const SearchGames = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
-    const [gameTrailerModal, setgameTrailerModal] = useState(false);
-    const [trailerModalTitle, setTrailerModalTitle] = useState('');
+    const [showGameTrailerModal, setShowGameTrailerModal] = useState(false);
+    const [gameTrailerModalTitle, setGameTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
 
@@ -180,8 +179,8 @@ const SearchMedia = () => {
                                         {Auth.loggedIn() && (
                                             <Button variant="primary" onClick={() => {handleSaveMedia(games.gameId); }}>Save to your favorites!</Button>
                                         )}
-                                        <Button variant="primary" onClick={() => {setgameTrailerModal(true)
-                                         setTrailerModalTitle(games.gameName + " game Trailer"); }}
+                                        <Button variant="primary" onClick={() => {setShowGameTrailerModal(true)
+                                         setGameTrailerModalTitle(games.gameName + " game Trailer"); }}
                                         >Watch a trailer!</Button>
                                     </Card.Body>
                                 </Card>
@@ -190,14 +189,14 @@ const SearchMedia = () => {
                     })}  
                 </Row>
             </Container>
-            <TrailerModal
-                gameTrailerModal={gameTrailerModal}
-                setgameTrailerModal={setgameTrailerModal}
-                trailerModalTitle={trailerModalTitle}
-                setTrailerModalTitle={setTrailerModalTitle}
-            ></TrailerModal>    
+            <GameModal
+                showGameTrailerModal={showGameTrailerModal}
+                setShowGameTrailerModal={setShowGameTrailerModal}
+                gameTrailerModalTitle={gameTrailerModalTitle}
+                setGameTrailerModalTitle={setGameTrailerModalTitle}
+            ></GameModal>    
         </div>
     );
 };
 
-export default SearchMedia;
+export default SearchGames;

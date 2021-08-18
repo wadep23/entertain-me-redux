@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, Row, Container, Col } from 'react-bootstrap';
-import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import { SAVE_TV_SHOW, ADD_POST } from '../../utils/mutations';
-import { TV_API_QUERY, QUERY_SELF }from '../../utils/queries';
-import TrailerModal from '../TrailerModal';
+import { TV_API_QUERY }from '../../utils/queries';
+import TvModal from '../TvModal';
 import Auth from '../../utils/auth';
 import { GiHandcuffs, GiNewspaper, GiLightSabers, GiFamilyHouse, GiSoap, GiSwordwoman, GiMagnifyingGlass } from "react-icons/gi";
 import { FaLaughSquint, FaSadCry, FaChild, FaHatCowboy } from "react-icons/fa";
@@ -12,10 +12,10 @@ import { BsFillPeopleFill, BsPencil} from "react-icons/bs";
 import { RiKakaoTalkLine } from "react-icons/ri";
 import { GoLaw } from "react-icons/go";
 
-const SearchMedia = () => {
+const SearchShows = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
-    const [showTrailerModal, setShowTrailerModal] = useState(false);
-    const [trailerModalTitle, setTrailerModalTitle] = useState('');
+    const [showTvTrailerModal, setShowTvTrailerModal] = useState(false);
+    const [tvTrailerModalTitle, setTvTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
 
@@ -68,9 +68,9 @@ const SearchMedia = () => {
     };
 
     return (
-        <div class="return-data">
+        <div className="return-data">
             <Container>
-                <Row fluid>
+                <Row fluid="true">
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 10759 }})}}
                          ><GiSwordwoman />Action/Adventure</button>
@@ -149,8 +149,8 @@ const SearchMedia = () => {
                                         {Auth.loggedIn() && (
                                             <Button variant="primary" onClick={() => {handleSaveMedia(shows.tvShowId); }}>Save to your favorites!</Button>
                                         )}
-                                        <Button variant="primary" onClick={() => {setShowTrailerModal(true)
-                                         setTrailerModalTitle(shows.tvShowName + " Show Trailer"); }}
+                                        <Button variant="primary" onClick={() => {setShowTvTrailerModal(true)
+                                         setTvTrailerModalTitle(shows.tvShowName + " Show Trailer"); }}
                                         >Watch a trailer!</Button>
                                     </Card.Body>
                                 </Card>
@@ -159,14 +159,14 @@ const SearchMedia = () => {
                     })}  
                 </Row>
             </Container>
-            <TrailerModal
-                showTrailerModal={showTrailerModal}
-                setShowTrailerModal={setShowTrailerModal}
-                trailerModalTitle={trailerModalTitle}
-                setTrailerModalTitle={setTrailerModalTitle}
-            ></TrailerModal>    
+            <TvModal
+                showTvTrailerModal={showTvTrailerModal}
+                setShowTvTrailerModal={setShowTvTrailerModal}
+                tvTrailerModalTitle={tvTrailerModalTitle}
+                setTvTrailerModalTitle={setTvTrailerModalTitle}
+            ></TvModal>    
         </div>
     );
 };
 
-export default SearchMedia;
+export default SearchShows;
