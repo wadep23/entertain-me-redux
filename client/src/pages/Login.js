@@ -1,10 +1,8 @@
-import { Redirect } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import gamerImgOne from "../assets/images/gamer-pic-1.jpg";
 import movieImgOne from "../assets/images/movie-pic-1.jpg";
 import tvPicOne from "../assets/images/tv-pic-1.jpg";
 import friendsImg from "../assets/images/friends-1.jpg";
-import auth from '../utils/auth';
 
 
 
@@ -18,8 +16,8 @@ function Login() {
          It can be a colossal waste of time trying to figure out what to watch or what game to play when there are too many to choose from. Entertain-Me facilitates the process, and connects users based on mutual interests. Are you not entertained? {" "}
         </h2>
         <div className="carousel-container">
-          <Carousel fade>
-            <Carousel.Item>
+          <Carousel fade interval={3000}>
+            <Carousel.Item interval={3000}>
               <img
                 className="d-block w-100"
                 src={gamerImgOne}
@@ -29,7 +27,7 @@ function Login() {
                 <h3>What game would you like to play today? Let us help!</h3>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item interval={3000}>
               <img
                 className="d-block w-100"
                 src={movieImgOne}
@@ -43,7 +41,7 @@ function Login() {
                 </h3>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item interval={3000}>
               <img
                 fluid
                 className="d-block w-100"
@@ -57,7 +55,7 @@ function Login() {
                 </h3>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item interval={3000}>
               <img
                 fluid
                 className="d-block w-100"
