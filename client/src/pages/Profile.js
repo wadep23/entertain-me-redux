@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect, useParams } from "react-router-dom";
 import {
   ADD_FRIEND,
@@ -10,7 +10,6 @@ import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
 import {
   Container,
-  CardColumns,
   Card,
   Button,
   Row,

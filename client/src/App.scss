@@ -266,10 +266,15 @@ button:hover {
   text-align: center;
 }
 
-main p {
+.laurels {
+  margin-right: 15%;
+  margin-left: 15%;
+  color: $text-color;
+  height: 5%;
+  width: 5%;
+}
 
+main p {
   text-align: center;
   font-weight: bold;
-  
-
 }

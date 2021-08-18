@@ -5,8 +5,8 @@ import { SAVE_TV_SHOW, ADD_POST } from '../../utils/mutations';
 import { TV_API_QUERY }from '../../utils/queries';
 import TvModal from '../TvModal';
 import Auth from '../../utils/auth';
-import { GiHandcuffs, GiNewspaper, GiLightSabers, GiFamilyHouse, GiSoap, GiSwordwoman, GiMagnifyingGlass } from "react-icons/gi";
-import { FaLaughSquint, FaSadCry, FaChild, FaHatCowboy } from "react-icons/fa";
+import { GiHandcuffs,  GiSoap, GiSwordwoman, GiMagnifyingGlass } from "react-icons/gi";
+import { FaLaughSquint, FaSadCry, FaHatCowboy } from "react-icons/fa";
 import { BiCameraMovie } from "react-icons/bi";
 import { BsFillPeopleFill, BsPencil} from "react-icons/bs";
 import { RiKakaoTalkLine } from "react-icons/ri";
@@ -170,3 +170,6 @@ const SearchShows = () => {
 };
 
 export default SearchShows;
+
+// icons for later
+// GiNewspaper, GiLightSabers, GiFamilyHouse, FaChild,
