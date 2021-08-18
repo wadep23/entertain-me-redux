@@ -4,11 +4,11 @@
 ![badgeImage](https://img.shields.io/badge/license-MIT-blue)
 
 ## Description
-An application that presents a specific movie, show or video game based on certain criteria a user enters.
+An single page application that presents info on a specific movie, show or video game based on certain criteria a user enters. Behaving like a multi-page app, users can efficiently sort between through media, save what they are interested in, and share their playlists with friends and fellow users. 
 ## UserStory
-AS AN avid reader
-I WANT to search for new books to read
-SO THAT I can keep a list of books to purchase
+AS A USER
+I WANT to search for new movies, tv shows, and/or video games
+SO THAT I can keep a playlist and share with friends.
 
 
 ## Table of Contents
@@ -31,18 +31,20 @@ Clone files on GitHub to your machine. You will then run 'npm i' and it will ins
 MERN (MongoDB, Express.js, React, Node.js)
 
 including:
-concurrently 
-@apollo/client
-bootstrap
-axios
-cors
-dotenv
-workbox
-jsonwebroken
-jwt-decode
-graphql
-bcrypt
 
+<li>
+<ul>concurrently</ul>
+<ul>@apollo/client</ul>
+<ul>bootstrap</ul>
+<ul>axios</ul>
+<ul>cors</ul>
+<ul>dotenv</ul>
+<ul>workbox</ul>
+<ul>jsonwebroken</ul>
+<ul>jwt-decode</ul>
+<ul>graphql</ul>
+<ul>bcrypt</ul>
+</ li>
 
 ## License
     Licensed under MIT
