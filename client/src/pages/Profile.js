@@ -167,6 +167,13 @@ const Profile = () => {
             </button>
           )}
         </div>
+        <div className="col-12 col-lg-3 mb-3">
+          <FriendList 
+            username={userData.username}
+            friendCount={userData.friendCount}
+            friends={userData.friends}
+          />
+        </div>
       <Container>
         <h2>
           {userData.favoriteMovies.length
@@ -294,13 +301,6 @@ const Profile = () => {
         setGameTrailerModalTitle={setGameTrailerModalTitle}
       ></GameModal> 
       </div>
-      <div className="col-12 col-lg-3 mb-3">
-          <FriendList
-            username={userData.username}
-            friendCount={userData.friendCount}
-            friends={userData.friends}
-          />
-        </div>
     </main>
   );
 };
