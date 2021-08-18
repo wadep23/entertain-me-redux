@@ -275,9 +275,9 @@ button:hover {
 .laurels {
   margin-right: 15%;
   margin-left: 15%;
-  color: $text-color;
   height: 5%;
   width: 5%;
+  animation: multicolor 5s infinite;
 }
 
 main p {
