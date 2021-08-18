@@ -3,7 +3,6 @@ import { Redirect } from 'react-router';
 import auth from '../utils/auth';
 import SearchMedia from '../components/Game'
 import { IoGameController } from "react-icons/io5";
-=======
 import SearchGames from '../components/Game'
 
 const Game = () => {

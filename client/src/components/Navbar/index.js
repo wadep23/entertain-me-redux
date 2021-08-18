@@ -48,9 +48,6 @@ const AppNavbar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#feed" as={Link} to="/home">
-                  Feed
-                </NavDropdown.Item>
                 <NavDropdown.Item href="#movies" as={Link} to="/movie">
                   Movies
                 </NavDropdown.Item>
