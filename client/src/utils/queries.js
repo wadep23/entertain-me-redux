@@ -95,6 +95,15 @@ export const QUERY_SELF = gql`
   }
 `;
 
+export const QUERY_ME_SIDEWAYS = gql`
+  {
+    me {
+      _id
+      username
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {

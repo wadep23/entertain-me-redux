@@ -5,13 +5,13 @@ header {
   background-color: $background;
   color: $text-color;
   text-align: center;
-  padding: 1%;
+  padding: 5% 1% 1% 1%;
   border-bottom: 2px solid goldenrod;
   box-shadow: inset 5px -5px 20px black;
 }
 
 img {
- padding: 20px;
+  padding: 20px;
 }
 
 Form {
@@ -21,6 +21,7 @@ Form {
 .primaryModal {
   background-color: $background;
   color: $text-color;
+  border-radius: 5px !important;
 }
 
 .modal-title {
@@ -35,8 +36,38 @@ Form {
   background-color: $background;
 }
 
+button.btn-close {
+  background-color: goldenrod;
+  border-radius: 3px;
+}
+
+button.btn-close :hover {
+  background-color: goldenrod;
+  border-radius: 5px;
+}
+
 .modal-content {
   color: $text-color;
+  // -webkit-border-radius: 10px !important;
+  // -moz-border-radius: 10px !important;
+  // border-radius: 10px !important;
+  border-radius: 20px;
+}
+
+#modalContainer-tab-login.active {
+  background-color: goldenrod;
+  color: #000;
+}
+#modalContainer-tab-login {
+  color: goldenrod;
+}
+
+#modalContainer-tab-signup.active {
+  background-color: goldenrod;
+  color: #000;
+}
+#modalContainer-tab-signup {
+  color: goldenrod;
 }
 
 .login-page {
@@ -46,13 +77,9 @@ Form {
 
 .intro-text {
   text-align: center;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
-  padding: 20px; 
-
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  padding: 20px;
 }
 
 h5 {
@@ -62,37 +89,34 @@ h5 {
 
 @keyframes multicolor {
   0% {
-      color: #003049 
+    color: #003049;
   }
   20% {
-      color: #d62828;
+    color: #d62828;
   }
   40% {
-      color: #f77f00;
+    color: #f77f00;
   }
   60% {
-      color: #fcbf49;  
+    color: #fcbf49;
   }
   80% {
-    color: #eae2b7;  
+    color: #eae2b7;
   }
   100% {
-    color: #003049;  
+    color: #003049;
   }
 }
 
 .carousel-container h3 {
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 @media (max-width: 900px) {
   .carousel {
-    width:auto;
-    height:auto;
+    width: auto;
+    height: auto;
   }
 }
 
@@ -145,9 +169,10 @@ h3 {
 main {
   background-color: $background;
   color: $text-color;
-  padding-top: 1%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   box-shadow: inset -5px 5px 20px black;
+  margin-bottom: -20px;
 }
 
 button {
@@ -169,10 +194,10 @@ button:hover {
 
 .footer {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #212529;
   font-weight: 1000;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -181,14 +206,14 @@ button:hover {
 }
 
 .footer p {
-  color: white; 
+  color: white;
   text-align: center;
 }
 
 .card-text {
-  color: $text-color
+  color: $text-color;
 }
 
 .card-title.h5 {
-  color: $text-color
+  color: $text-color;
 }
