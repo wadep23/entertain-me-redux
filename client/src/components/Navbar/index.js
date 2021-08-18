@@ -85,7 +85,7 @@ const AppNavbar = () => {
         <GiLaurels class="laurels"/>
         <img src={logoImg} alt="logo"></img>
         <GiLaurels class="laurels"/>        
-        <h5>Your go-to site when you don't know what to watch!</h5>
+        <h5>WHEN INDECISION STANDS IN THE WAY OF ENTERTAINMENT </h5>
       </header>
     </div>
   );
