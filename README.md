@@ -1,70 +1,68 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Entertain Me!</h1>
 
-## Available Scripts
+![badgeImage](https://img.shields.io/badge/license-MIT-blue)
 
-In the project directory, you can run:
+## Description
+An application that presents a specific movie, show or video game based on certain criteria a user enters.
+## UserStory
+AS AN avid reader
+I WANT to search for new books to read
+SO THAT I can keep a list of books to purchase
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
+- [Installation](#install)
+- [Usage](#usage)
+- [License](#license)
+- [Repo](#repo)
+- [Deploy](#deploy)
+- [Contributing](#contribution)
+- [Questions](#questions)
+## Installation
+Clone files on GitHub to your machine. You will then run 'npm i' and it will install the needed dependencies.
+![Screen Shot 2021-08-18 at 2 31 00 PM](https://user-images.githubusercontent.com/79377937/129972933-1299efb7-0ee8-4a3a-b067-b8908744b1e3.png)
+![Screen Shot 2021-08-18 at 2 31 14 PM](https://user-images.githubusercontent.com/79377937/129972937-2a75e90e-641a-483c-ab72-6a666f23d373.png)
+![Screen Shot 2021-08-18 at 2 34 10 PM](https://user-images.githubusercontent.com/79377937/129972942-852a8f5a-fd83-4a17-a3bc-077dbac76998.png)
+![Screen Shot 2021-08-18 at 2 40 05 PM](https://user-images.githubusercontent.com/79377937/129972944-328fb0e2-847f-4e09-a3b3-5213a54e8516.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Usage
+MERN (MongoDB, Express.js, React, Node.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+including:
+concurrently 
+@apollo/client
+bootstrap
+axios
+cors
+dotenv
+workbox
+jsonwebroken
+jwt-decode
+graphql
+bcrypt
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
+    Licensed under MIT
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Repo
+<ul>Repository (https://github.com/wadep23/entertain-me-redux)</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deploy
+<ul>Deployed Site (" ")</ul>
 
-### `npm run eject`
+## Contributing
+<li>
+<ul>James Canter(https://github.com/Cantalorian)</ul>
+<ul>Wade Facer (https://github.com/wadep23/)</ul>
+<ul>Bob Tarino (https://github.com/BobTarino)</ul>
+<ul>Jake Williams (https://github.com/jakelw96)</ul>
+</li>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Questions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you have questions about this repository, you can find us <ul>here! (https://github.com/wadep23/entertain-me-redux)</ul>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
