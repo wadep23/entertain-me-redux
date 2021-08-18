@@ -11,7 +11,7 @@ header {
 }
 
 img {
-  padding: 20px;
+  padding: 40px;
 }
 
 Form {
@@ -203,6 +203,16 @@ button:hover {
   width: 100%;
   color: $text-color;
   z-index: 10;
+}
+
+.footer p h5 {
+  color: white;
+  text-align: center;
+}
+
+.footer p li {
+  color: white;
+  text-align: center;
 }
 
 .footer p {
