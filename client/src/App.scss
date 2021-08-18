@@ -115,6 +115,7 @@ button.btn-close :hover {
 }
 
 h5 {
+        font-family: futura;
   padding: 10px;
   animation: multicolor 5s infinite;
 }
@@ -269,4 +270,17 @@ button:hover {
 
 .btn-loc {
   text-align: center;
+}
+
+.laurels {
+  margin-right: 15%;
+  margin-left: 15%;
+  color: $text-color;
+  height: 5%;
+  width: 5%;
+}
+
+main p {
+  text-align: center;
+  font-weight: bold;
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {Button, Card, Row, Container, Col} from 'react-bootstrap';
-import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import { SAVE_MOVIE, ADD_POST } from '../../utils/mutations';
-import { MOVIE_API_QUERY, QUERY_SELF }from '../../utils/queries';
+import { MOVIE_API_QUERY }from '../../utils/queries';
 import MovieModal from '../MovieModal';
 import Auth from '../../utils/auth';
 import { FaLaughSquint, FaHeart, FaSadCry, FaHatCowboy, FaMusic } from "react-icons/fa";
