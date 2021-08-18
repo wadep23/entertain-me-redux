@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect, useParams } from "react-router-dom";
 import {
   ADD_FRIEND,
@@ -10,7 +10,6 @@ import { QUERY_SELF, QUERY_USER } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
 import {
   Container,
-  CardColumns,
   Card,
   Button,
   Row,
@@ -33,11 +32,10 @@ const Profile = () => {
   const [gameTrailerModalTitle, setGameTrailerModalTitle] = useState('');
 
   const [addFriend] = useMutation(ADD_FRIEND);
-  const [deleteContent] = useMutation(
-    REMOVE_MOVIE,
-    REMOVE_TV_SHOW,
-    REMOVE_GAME
-  );
+  const [deleteMovie] = useMutation(REMOVE_MOVIE);
+  const [deleteShow] = useMutation(REMOVE_TV_SHOW);
+  const [deleteGame] = useMutation(REMOVE_GAME);
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_SELF , {
     variables: { username: userParam },
   });
@@ -52,11 +50,6 @@ const Profile = () => {
     return <Redirect to="/" />;
   }
 
-  
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   if (!userData?.username) {
     return (
       <h4>
@@ -66,75 +59,56 @@ const Profile = () => {
     );
   }
 
-  console.log(userData)
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
   // change the passed in value to something that can be unique to the content type ie. passed in value of mediaType and compare to favorite media array on user model
-  const handleDeleteContent = async () => {
+  const handleDeleteMovie = async (movieId) => {
     const token = Auth.loggedIn() ? Auth.retrieveToken() : null;
-
-    const movieId =
-      userData.favoriteMovies.movieId
-    const tvShowId =
-      userData.favoriteTvShows.tvShowId;
-    const gameId =
-      userData.favoriteGames.gameId;
-
+    
     if (!token) {
       return false;
     }
 
-    if (movieId) {
-      await deleteContent({
-        variables: { movieId: movieId },
-        update: (cache) => {
-          const data = cache.readQuery({ query: QUERY_SELF });
-          const userDataCache = data.me;
-          const savedMovieCache = userDataCache.favoriteMovies;
-          const updatedMoviesCache = savedMovieCache.filter(
-            (movie) => movie.movieId !== movieId
-          );
-          data.me.favoriteMovies = updatedMoviesCache;
-          cache.writeQuery({
-            query: QUERY_SELF,
-            data: { data: { ...data.me.favoriteMovies } },
-          });
-        },
-      });
+    try {
+      await deleteMovie({
+        variables: { movieId: movieId }
+      })
+    } catch (err) {
+      console.error(err)
     }
-    if (tvShowId) {
-      await deleteContent({
-        variables: { tvShowId: tvShowId },
-        update: (cache) => {
-          const data = cache.readQuery({ query: QUERY_SELF });
-          const userDataCache = data.me;
-          const savedTvShowCache = userDataCache.favoriteTvShows;
-          const updatedTvShowCache = savedTvShowCache.filter(
-            (tv) => tv.tvShowId !== tvShowId
-          );
-          data.me.favoriteTvShows = updatedTvShowCache;
-          cache.writeQuery({
-            query: QUERY_SELF,
-            data: { data: { ...data.me.favoriteTvShows } },
-          });
-        },
-      });
+  };
+  
+  const handleDeleteShow = async (showId) => {
+    const token = Auth.loggedIn() ? Auth.retrieveToken() : null;
+    
+    if (!token) {
+      return false;
     }
-    if (gameId) {
-      await deleteContent({
-        variables: { gameId: gameId },
-        update: (cache) => {
-          const data = cache.readQuery({ query: QUERY_SELF });
-          const userDataCache = data.me;
-          const savedGameCache = userDataCache.favoriteGames;
-          const updatedGamesCache = savedGameCache.filter(
-            (game) => game.gameId !== gameId
-          );
-          data.me.favoriteGames = updatedGamesCache;
-          cache.writeQuery({
-            query: QUERY_SELF,
-            data: { data: { ...data.me.favoriteGames } },
-          });
-        },
-      });
+
+    try {
+      await deleteShow({
+        variables: { tvShowId: showId }
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  };
+
+  const handleDeleteGame = async (gameId) => {
+    const token = Auth.loggedIn() ? Auth.retrieveToken() : null;
+    
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await deleteGame({
+        variables: { gameId: gameId }
+      })
+    } catch (err) {
+      console.error(err)
     }
   };
 
@@ -147,10 +121,6 @@ const Profile = () => {
       console.error(err);
     }
   };
-
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
 
   return (
     <main>
@@ -194,7 +164,7 @@ const Profile = () => {
                       <Card.Text>Rating: {user.movieRating}</Card.Text>
                       {Auth.loggedIn() && (
                         <Button className="btn-block btn-danger"
-                        onClick={() => handleDeleteContent(user.movieId)}
+                        onClick={() => handleDeleteMovie(user.movieId)}
                         >Delete this Movie!
                         </Button>
                       )}
@@ -236,7 +206,7 @@ const Profile = () => {
                     <Card.Text>Rating: {user.tvShowRating}</Card.Text>
                     {Auth.loggedIn() && (
                       <Button className="btn-block btn-danger"
-                      onClick={() => handleDeleteContent(user.tvShowId)}
+                      onClick={() => handleDeleteShow(user.tvShowId)}
                       >
                         Delete this T.V. Show!
                       </Button>
@@ -276,7 +246,7 @@ const Profile = () => {
                     <Card.Text>Rating: {user.gameRating}</Card.Text>
                     {Auth.loggedIn() && (
                       <Button className="btn-block btn-danger"
-                      onClick={() => handleDeleteContent(user.tvShowId)}
+                      onClick={() => handleDeleteGame(user.gameId)}
                       >
                       Delete this Game!
                     </Button>

@@ -119,7 +119,7 @@ export const SAVE_TV_SHOW = gql`
 
 export const REMOVE_TV_SHOW = gql`
   mutation removeTvShow($tvShowId: ID!) {
-    removeTvShow(tvShowdId: $tvShowdId) {
+    removeTvShow(tvShowId: $tvShowId) {
       _id
       username
       favoriteTvShows {
