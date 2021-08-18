@@ -82,7 +82,7 @@ const AppNavbar = () => {
       <UserModal showModal={showModal} setShowModal={setShowModal} />
       <header>
         <img src={logoImg} alt="logo"></img>
-        <h5>Your go-to site when you don't know what to watch!</h5>
+        <h5>WHEN INDECISION STANDS IN THE WAY OF ENTERTAINMENT </h5>
       </header>
     </div>
   );
