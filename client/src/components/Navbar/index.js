@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/entertain-me-logo.png";
 import { GiLaurels } from 'react-icons/gi'
@@ -21,7 +21,7 @@ const AppNavbar = () => {
   }
 
   return (
-    <div>
+    <div fluid>
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -82,10 +82,21 @@ const AppNavbar = () => {
       </Navbar>
       <UserModal showModal={showModal} setShowModal={setShowModal} />
       <header>
-        <GiLaurels class="laurels"/>
         <img src={logoImg} alt="logo"></img>
+        <Row>
+          <Col>
+          
         <GiLaurels class="laurels"/>        
+          </Col>
+          <Col>
+          
         <h5>WHEN INDECISION STANDS IN THE WAY OF ENTERTAINMENT </h5>
+          </Col>
+          <Col>
+          
+        <GiLaurels class="laurels"/>
+          </Col>
+        </Row>
       </header>
     </div>
   );
