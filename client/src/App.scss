@@ -113,12 +113,6 @@ h5 {
     1px 1px 0 #000;
 }
 
-@media (max-width: 900px) {
-  .carousel {
-    width: auto;
-    height: auto;
-  }
-}
 
 /* dimensions for trailer videos */
 .video-box {
@@ -226,4 +220,11 @@ button:hover {
 
 .card-title.h5 {
   color: $text-color;
+}
+
+@media (max-width: 900px) {
+  .carousel {
+    width: auto;
+    height: auto;
+  }
 }
