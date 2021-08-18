@@ -65,16 +65,18 @@ const Profile = () => {
       </h4>
     );
   }
+
+  console.log(userData)
   // change the passed in value to something that can be unique to the content type ie. passed in value of mediaType and compare to favorite media array on user model
   const handleDeleteContent = async () => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const token = Auth.loggedIn() ? Auth.retrieveToken() : null;
 
     const movieId =
-      data?.me.favoriteMovies.movieId || data?.user.favoriteMovies.movieId;
+      userData.favoriteMovies.movieId
     const tvShowId =
-      data?.me.favoriteTvShows.tvShowId || data?.user.favoriteTvShows.tvShowId;
+      userData.favoriteTvShows.tvShowId;
     const gameId =
-      data?.me.favoriteGames.gameId || data?.user.favoriteGames.gameId;
+      userData.favoriteGames.gameId;
 
     if (!token) {
       return false;

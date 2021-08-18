@@ -2,12 +2,26 @@ $background: rgb(112, 7, 7);
 $text-color: goldenrod;
 
 header {
-  background-color: $background;
-  color: $text-color;
-  text-align: center;
-  padding: 5% 1% 1% 1%;
+  padding: 5% 1% 1%1%;
   border-bottom: 2px solid goldenrod;
+  text-align: center;
   box-shadow: inset 5px -5px 20px black;
+  background-color: $background;
+  animation-name: color;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes color {
+  0% {
+    background-color: $background;
+  }
+  50% {
+    background-color: black;
+  }
+  100% {
+    background-color: $background;
+  }
 }
 
 img {
