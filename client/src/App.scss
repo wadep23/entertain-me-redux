@@ -25,7 +25,8 @@ header {
 }
 
 img {
-  padding: 40px;
+  padding: 20px;
+  box-shadow: inset 5px -5px 20px black;
 }
 
 Form {
@@ -58,6 +59,23 @@ button.btn-close {
 button.btn-close :hover {
   background-color: goldenrod;
   border-radius: 5px;
+}
+
+#friend-btn {
+  margin-top: 5%;
+  box-shadow: 5px 5px 3px black;
+  background-color: $background;
+  color: $text-color;
+  font-weight: bold;
+  border: 2px solid goldenrod;
+  border-radius: 5px;
+}
+
+#friend-btn:hover {
+  background-color: $text-color;
+  color: rgb(112, 7, 7);
+  font-weight: bold;
+  border: 3px solid rgb(112, 7, 7);
 }
 
 .modal-content {
