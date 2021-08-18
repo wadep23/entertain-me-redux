@@ -5,7 +5,7 @@ header {
   background-color: $background;
   color: $text-color;
   text-align: center;
-  padding: 1%;
+  padding: 5% 1% 1% 1%;
   border-bottom: 2px solid goldenrod;
   box-shadow: inset 5px -5px 20px black;
 }
@@ -17,6 +17,7 @@ Form {
 .primaryModal {
   background-color: $background;
   color: $text-color;
+  border-radius: 5px !important;
 }
 
 .modal-title {
@@ -31,8 +32,38 @@ Form {
   background-color: $background;
 }
 
+button.btn-close {
+  background-color: goldenrod;
+  border-radius: 3px;
+}
+
+button.btn-close :hover {
+  background-color: goldenrod;
+  border-radius: 5px;
+}
+
 .modal-content {
   color: $text-color;
+  // -webkit-border-radius: 10px !important;
+  // -moz-border-radius: 10px !important;
+  // border-radius: 10px !important;
+  border-radius: 20px;
+}
+
+#modalContainer-tab-login.active {
+  background-color: goldenrod;
+  color: #000;
+}
+#modalContainer-tab-login {
+  color: goldenrod;
+}
+
+#modalContainer-tab-signup.active {
+  background-color: goldenrod;
+  color: #000;
+}
+#modalContainer-tab-signup {
+  color: goldenrod;
 }
 
 .login-page {
@@ -43,13 +74,16 @@ Form {
   text-align: center;
 }
 
-.carousel-container {
-  margin-left: 31%;
+.carousel-container h3 {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-.carousel {
-  width: 900px;
-  height: 600px;
+@media (max-width: 900px) {
+  .carousel {
+    width: auto;
+    height: auto;
+  }
 }
 
 /* dimensions for trailer videos */
@@ -72,21 +106,39 @@ Form {
   background-color: black;
 }
 
+.feed-header {
+  text-align: center;
+}
+
+.post-box {
+  background-color: black;
+  padding-bottom: 3px;
+  padding-top: 10px;
+  padding-left: 12px;
+  border-bottom: 2px solid $text-color;
+}
+
+.name-link {
+  text-decoration: none;
+  color: $text-color;
+}
+
 li {
   list-style: none;
   padding-bottom: 1%;
 }
 
 h3 {
-  color: goldenrod;
+  color: rgb(240, 193, 76);
 }
 
 main {
   background-color: $background;
   color: $text-color;
-  padding-top: 1%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   box-shadow: inset -5px 5px 20px black;
+  margin-bottom: -20px;
 }
 
 button {
@@ -106,9 +158,27 @@ button:hover {
   border: 3px solid rgb(112, 7, 7);
 }
 
-footer {
-  text-align: center;
-  height: 50px;
-  justify-content: center;
-  border-top: 2px solid goldenrod;
+.footer {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #212529;
+  // position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $text-color;
+  z-index: 10;
+}
+
+.logo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.card-text {
+  color: $text-color;
+}
+
+.card-title.h5 {
+  color: $text-color;
 }

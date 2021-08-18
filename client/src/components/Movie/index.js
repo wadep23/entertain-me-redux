@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import {Button, Card, Row, Container, Col} from 'react-bootstrap';
 import { useMutation, useLazyQuery, useQuery } from '@apollo/client';
 import { SAVE_MOVIE, ADD_POST } from '../../utils/mutations';
 import { MOVIE_API_QUERY, QUERY_SELF }from '../../utils/queries';
 import TrailerModal from '../TrailerModal';
 import Auth from '../../utils/auth';
+import { FaLaughSquint, FaHeart, FaSadCry, FaHatCowboy, FaMusic } from "react-icons/fa";
+import { GiPistolGun, GiEarthAmerica, GiGhost, GiUnicorn, GiMagnifyingGlass, GiTvRemote, GiSpartanHelmet, GiHandcuffs, GiFamilyHouse, GiAncientColumns  } from "react-icons/gi";
+import { RiAliensFill, RiKnifeBloodLine } from "react-icons/ri";
+import { BiCameraMovie } from "react-icons/bi";
 
 const SearchMedia = () => {
     let imgLink = "https://image.tmdb.org/t/p/w500";
@@ -13,17 +16,12 @@ const SearchMedia = () => {
     const [trailerModalTitle, setTrailerModalTitle] = useState('');
     const [searchedMedia, setSearchedMedia] = useState([]);
     const [savedMedia, setSavedMedia] = useState({});
-    // const { username: userParam } = useParams();
-
-    // const { userLoading, userData } = useQuery(QUERY_SELF, {
-    //     variables: { username: userParam }
-    // });
 
     const [getGenre, { loading, data }] = useLazyQuery(MOVIE_API_QUERY);
     
     const [saveMovie] = useMutation(SAVE_MOVIE);
-    // const [createPost] = useMutation(ADD_POST);
-
+    const [createPost] = useMutation(ADD_POST);
+    
     useEffect(() => {
         if (data) {
             let movieData = data.movie.map((movies) => ({
@@ -36,7 +34,7 @@ const SearchMedia = () => {
             setSearchedMedia(movieData) 
         }
     }, [data, imgLink]);
-    // console.log(userData)
+
     if (loading) {
         return <div>Loading...</div>
     }
@@ -55,11 +53,11 @@ const SearchMedia = () => {
                 }
             })
 
-            // await createPost({
-            //     variables: {
-            //       postText: `${userData.user}`  
-            //     }
-            // })
+            await createPost({
+                variables: {
+                  postText: ` saved ${movieToSave.movieName} to their favorite movies!`  
+                }
+            })
 
             setSavedMedia([...savedMedia, movieToSave.movieId])
             } catch (err) {
@@ -69,43 +67,79 @@ const SearchMedia = () => {
 
     return (
         <div class="return-data">
-            <Container>
+            <Container fluid>
                 <Row>
                     <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 27 }})}}
-                        >Horror</button>
-                    </Col>
-                    <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 28 }})}} 
-                        >Action</button>
+                        ><GiPistolGun /> Action</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 12 }})}}
-                        >Adventure</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 10749 }})}}
-                         >Romance</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 878 }})}}
-                         >Sci-Fi</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
-                         >Drama</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 14 }})}}
-                         >Fantasy</button>
-                    </Col>
-                    <Col>
-                        <button onClick={() => { getGenre({ variables: { genre: 9648 }})}}
-                         >Mystery</button>
+                        ><GiEarthAmerica /> Adventure</button>
                     </Col>
                     <Col>
                         <button onClick={() => { getGenre({ variables: { genre: 35 }})}}
-                         >Comedy</button>
+                         ><FaLaughSquint /> Comedy</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 80 }})}}
+                         ><GiHandcuffs  /> Crime</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 99 }})}}
+                         ><BiCameraMovie  /> Documentary</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 18 }})}}
+                        ><FaSadCry /> Drama</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10751 }})}}
+                        ><GiFamilyHouse /> Family</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 14 }})}}
+                        ><GiUnicorn /> Fantasy</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 36 }})}}
+                        ><GiAncientColumns /> History</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 27 }})}}
+                        ><GiGhost /> Horror</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10402 }})}}
+                        ><FaMusic /> Music</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 9648 }})}}
+                        ><GiMagnifyingGlass /> Mystery</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10749 }})}}
+                        ><FaHeart /> Romance</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 878 }})}}
+                        ><RiAliensFill /> Sci-Fi</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10770 }})}}
+                        ><GiTvRemote /> TV Movie</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 53 }})}}
+                        ><RiKnifeBloodLine /> Thriller</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 10752 }})}}
+                        ><GiSpartanHelmet /> War</button>
+                    </Col>
+                    <Col>
+                        <button onClick={() => { getGenre({ variables: { genre: 37 }})}}
+                        ><FaHatCowboy /> Western</button>
                     </Col>
                 </Row>
                 <Row>
@@ -113,7 +147,7 @@ const SearchMedia = () => {
                         return (
                             <Col sm={3}>
                                 <Card key={movies.movieId} style={{ width: '18rem' }}>
-                                    <Card.Img src={movies.moviePoster} alt={`The poster for ${movies.movieName}`} variant="top" />
+                                    <Card.Img src={movies.moviePoster} alt={`The poster for ${movies.movieName}`} variant="top" style={{ height: '20rem' }}/>
                                     <Card.Body className="card-body">
                                         <Card.Title>{movies.movieName}</Card.Title>
                                         <Card.Text>{movies.movieDetails}</Card.Text>

@@ -21,7 +21,13 @@ const AppNavbar = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="fixed-top"
+      >
         <Container>
           {/* if user is logged in, no sign-in modal */}
           {Auth.loggedIn() ? (
@@ -42,6 +48,9 @@ const AppNavbar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="The Arena" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#feed" as={Link} to="/home">
+                  Feed
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#movies" as={Link} to="/movie">
                   Movies
                 </NavDropdown.Item>
@@ -76,7 +85,7 @@ const AppNavbar = () => {
       <UserModal showModal={showModal} setShowModal={setShowModal} />
       <header>
         <img src={logoImg} alt="logo"></img>
-        <h4>Your go-to site when you just don't know what to watch!</h4>
+        <h4>Your go-to site when you don't know what to watch!</h4>
       </header>
     </div>
   );
