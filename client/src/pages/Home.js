@@ -11,7 +11,9 @@ const HomePage = () => {
 
     return (
         <main>
-            <h1 className="feed-header">Welcome to the Feed page! See what other users have saved recently and check out their profile!</h1>
+            <h1 className="feed-header">Friend Feed:</h1>
+            <br />
+            <p>See what other users have saved recently and check out their profile!</p>
             <Container>
                 <Row>
                 <FeedList />
