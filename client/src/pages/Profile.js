@@ -37,7 +37,7 @@ const Profile = () => {
   }
 
   if (Auth.loggedIn() && Auth.getUserData().username === userParam) {
-    return <Redirect to="/profile/:username?" />;
+    return <Redirect to="/profile/" />;
   }
 
   if (loading) {

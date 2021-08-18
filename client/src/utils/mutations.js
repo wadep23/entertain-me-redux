@@ -130,21 +130,21 @@ export const REMOVE_TV_SHOW = gql`
 `;
 
 export const SAVE_GAME = gql`
-  mutation savegame(
+  mutation saveGame(
     $gameId: ID!
     $gameName: String!
     $gamePoster: String
     $gameRating: Float
   ) {
-    savegame(
+    saveGame(
       gameId: $gameId
       gameName: $gameName
       gamePoster: $gamePoster
-      movieRating: $movieRating
+      gameRating: $gameRating
     ) {
       _id
       username
-      favoritegames {
+      favoriteGames {
         gameId
         gameName
         gamePoster

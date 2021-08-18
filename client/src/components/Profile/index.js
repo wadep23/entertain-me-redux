@@ -19,14 +19,14 @@ const Profile = () => {
     REMOVE_TV_SHOW,
     REMOVE_GAME
   );
-  const { loading, data } = useQuery(userParam ? QUERY_SELF : QUERY_USER, {
+  const { loading, data } = useQuery(userParam ? QUERY_SELF : QUERY_USER , {
     variables: { username: userParam },
   });
 
   const userData = data?.me || data?.user || {};
 
   if (Auth.loggedIn() && Auth.getUserData().username === userParam) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/profile/:username?" />;
   }
 
   if (loading) {
@@ -94,7 +94,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(tvShowId);
     }
     if (gameId) {
       await deleteContent({
@@ -113,7 +112,6 @@ const Profile = () => {
           });
         },
       });
-      removeMediaId(gameId);
     }
   };
 
