@@ -6,7 +6,7 @@ import { Col } from 'react-bootstrap';
 import { QUERY_POSTS } from '../../utils/queries';
 import auth from '../../utils/auth';
 
-const FeedList = (props) => {
+const FeedList = () => {
     
     const { loading, data: postData } = useQuery(QUERY_POSTS);
 
