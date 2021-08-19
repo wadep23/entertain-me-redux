@@ -271,6 +271,13 @@ button:hover {
   }
 }
 
+@media (max-width: 550px) {
+  #logo {
+    height: 364px;
+    width: 364px;
+  }
+}
+
 .btn-loc {
   text-align: center;
 }

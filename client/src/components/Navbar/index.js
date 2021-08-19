@@ -82,7 +82,7 @@ const AppNavbar = () => {
       </Navbar>
       <UserModal showModal={showModal} setShowModal={setShowModal} />
       <header>
-        <img src={logoImg} alt="logo"></img>
+        <img id="logo" src={logoImg} alt="logo"></img>
         <Row>
           <Col>
           
