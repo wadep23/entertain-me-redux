@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
-const secret = REACT_APP_SECRET;
+const secret = process.env.REACT_APP_SECRET;
 const expiration = '2h';
 
 module.exports = {
