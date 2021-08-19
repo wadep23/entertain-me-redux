@@ -278,6 +278,22 @@ button:hover {
   }
 }
 
+@media (max-width: 360px) {
+  #logo {
+    height: 128px;
+    width: 128px;
+  }
+  .laurels {
+    height: 64px;
+    width: 64px;
+    padding: 0px;
+  }
+  h5 {
+    padding: 0px;
+    font-size: 10px;
+  }
+}
+
 .btn-loc {
   text-align: center;
 }
