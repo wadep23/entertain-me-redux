@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.820f71a3.chunk.css",
+    "main.js": "/static/js/main.1e6d7937.chunk.js",
+    "main.js.map": "/static/js/main.1e6d7937.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1aa427fe.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1aa427fe.js.map",
+    "static/css/2.9082872e.chunk.css": "/static/css/2.9082872e.chunk.css",
+    "static/js/2.65d91cc1.chunk.js": "/static/js/2.65d91cc1.chunk.js",
+    "static/js/2.65d91cc1.chunk.js.map": "/static/js/2.65d91cc1.chunk.js.map",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.map": "/service-worker.js.map",
+    "static/css/2.9082872e.chunk.css.map": "/static/css/2.9082872e.chunk.css.map",
+    "static/css/main.820f71a3.chunk.css.map": "/static/css/main.820f71a3.chunk.css.map",
+    "static/js/2.65d91cc1.chunk.js.LICENSE.txt": "/static/js/2.65d91cc1.chunk.js.LICENSE.txt",
+    "static/media/entertain-me-logo.fd4d6cb7.png": "/static/media/entertain-me-logo.fd4d6cb7.png",
+    "static/media/friends-1.d4c84950.jpg": "/static/media/friends-1.d4c84950.jpg",
+    "static/media/gamer-pic-1.048625f7.jpg": "/static/media/gamer-pic-1.048625f7.jpg",
+    "static/media/movie-pic-1.3e885e32.jpg": "/static/media/movie-pic-1.3e885e32.jpg",
+    "static/media/tv-pic-1.f4980a2f.jpg": "/static/media/tv-pic-1.f4980a2f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1aa427fe.js",
+    "static/css/2.9082872e.chunk.css",
+    "static/js/2.65d91cc1.chunk.js",
+    "static/css/main.820f71a3.chunk.css",
+    "static/js/main.1e6d7937.chunk.js"
+  ]
+}
