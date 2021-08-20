@@ -183,6 +183,13 @@ h5 {
   color: $text-color;
 }
 
+.name-friend-link {
+  text-decoration: none;
+  color: $text-color;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 li {
   list-style: none;
   padding-bottom: 1%;
@@ -264,16 +271,37 @@ button:hover {
   }
 }
 
+@media (max-width: 550px) {
+  #logo {
+    height: 364px;
+    width: 364px;
+  }
+}
+
+@media (max-width: 360px) {
+  #logo {
+    height: 128px;
+    width: 128px;
+  }
+  .laurels {
+    height: 64px;
+    width: 64px;
+    padding: 0px;
+  }
+  h5 {
+    padding: 0px;
+    font-size: 10px;
+  }
+}
+
 .btn-loc {
   text-align: center;
 }
 
 .laurels {
-  margin-right: 15%;
-  margin-left: 15%;
-  color: $text-color;
-  height: 5%;
-  width: 5%;
+  animation: multicolor 5s infinite;
+  height: 40px;
+  width: 40px;
 }
 
 main p {

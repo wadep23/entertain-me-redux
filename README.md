@@ -54,7 +54,7 @@ including:
 <ul>Repository (https://github.com/wadep23/entertain-me-redux)</ul>
 
 ## Deploy
-<ul>Deployed Site (" ")</ul>
+<ul>Deployed Site (https://entertain-me-redux.herokuapp.com/)</ul>
 
 ## Contributing
 <li>
