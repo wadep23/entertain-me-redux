@@ -4,7 +4,7 @@
 ![badgeImage](https://img.shields.io/badge/license-MIT-blue)
 
 ## Description
-An single page application that presents info on a specific movie, show or video game based on certain criteria a user enters. Behaving like a multi-page app, users can efficiently sort between through media, save what they are interested in, and share their playlists with friends and fellow users. 
+An single page application that presents info on a specific movie, show or video game based on certain criteria a user enters. Behaving like a multi-page app, users can efficiently sort through media, save what they are interested in, and share their playlists with friends and fellow users. 
 ## UserStory
 AS A USER
 I WANT to search for new movies, tv shows, and/or video games
